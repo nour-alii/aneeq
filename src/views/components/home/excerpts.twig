@@ -1,0 +1,60 @@
+<div class="all-excerpts">
+    {% for excerpt in component.excerpts %}
+    <div class="one-excerpt" style="background-image: url('{{ excerpt.excerpts_image }}');">
+        <p class="one-excerpt-title">{{ excerpt.excerpts_title }}</p>
+        <p class="one-excerpt-desc">{{ excerpt.excerpts_description }}</p>
+        <button>تسوقي الآن</button>
+    </div>
+    {% endfor %}
+</div>
+
+<style>
+    .all-excerpts {
+        margin-top: 110px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .one-excerpt {
+        width: 30%;
+        background-color: #cccccc;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+        border-radius: 10px;
+        overflow: hidden;
+        padding: 20px;
+        height: 220px;
+    }
+
+    .one-excerpt:last-child {
+        width: 93%;
+    }
+
+    .one-excerpt-title {
+        color: #666666;
+        font-size: 14px;
+        margin-top: 15px;
+    }
+
+    .one-excerpt-desc {
+        color: #0F1939;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .one-excerpt button {
+        background: transparent;
+        color: white;
+        border: 1px solid white;
+        padding: 5px 20px;
+        border-radius: 5px;
+        margin-top: 15px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+</style>
