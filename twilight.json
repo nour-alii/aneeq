@@ -1182,6 +1182,16 @@
                     "maxLength": 5
                 }
             ]
+        },
+        {
+            "key": "51a1e2b4-af03-4a0f-8a6d-685b97d1aff7",
+            "title": {
+                "en": "excerpts",
+                "ar": "مقتطفات"
+            },
+            "icon": "sicon-store",
+            "path": "home.excerpts",
+            "fields": []
         }
     ],
     "support_url": "https://aneeqsa.com/",
