@@ -1303,6 +1303,16 @@
                     "maxLength": "500"
                 }
             ]
+        },
+        {
+            "key": "ea72d975-5719-48cc-a9b0-dc280c6b78cd",
+            "title": {
+                "en": "discount_banner",
+                "ar": "اعلان الخصم"
+            },
+            "icon": "sicon-store",
+            "path": "home.discount-banner",
+            "fields": []
         }
     ],
     "support_url": "https://aneeqsa.com/",
