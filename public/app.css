@@ -984,10 +984,6 @@ select {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
 }
-.my-2\.5 {
-    margin-top: 0.625rem;
-    margin-bottom: 0.625rem;
-}
 .-mb-52 {
     margin-bottom: -13rem;
 }
@@ -1297,9 +1293,6 @@ select {
 .flex-grow {
     flex-grow: 1;
 }
-.basis-0 {
-    flex-basis: 0px;
-}
 .table-fixed {
     table-layout: fixed;
 }
@@ -1389,6 +1382,9 @@ select {
 .gap-1 {
     gap: 0.25rem;
 }
+.gap-10 {
+    gap: 2.5rem;
+}
 .gap-2 {
     gap: 0.5rem;
 }
@@ -1406,9 +1402,6 @@ select {
 }
 .gap-8 {
     gap: 2rem;
-}
-.gap-10 {
-    gap: 2.5rem;
 }
 .space-x-1 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-x-reverse: 0;
