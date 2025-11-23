@@ -1040,7 +1040,50 @@
             },
             "icon": "sicon-store",
             "path": "home.hero-section",
-            "fields": []
+            "fields": [
+                {
+                    "id": "hero_image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "hero_image",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "e.g. https://hostname.com/image.png",
+                    "icon": "sicon-image",
+                    "value": null,
+                    "required": true
+                },
+                {
+                    "id": "hero_title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "hero_title",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": false,
+                    "minLength": 6,
+                    "maxLength": 30
+                },
+                {
+                    "id": "hero_description",
+                    "type": "string",
+                    "format": "text",
+                    "label": "hero_description",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": false,
+                    "minLength": 6,
+                    "maxLength": "250"
+                }
+            ]
         }
     ],
     "support_url": "https://aneeqsa.com/",
