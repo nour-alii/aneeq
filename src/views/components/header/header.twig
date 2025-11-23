@@ -1,86 +1,134 @@
 {#
-| Variable         | Type    | Description                     |
+| Variable | Type | Description |
 |------------------|---------|---------------------------------|
-| cart             | object  |                                 |
-| cart.items_count | int     |                                 |
-| cart.total       | string  | Formatted total ex: "١٠٠ ر.س"   |
+| cart | object | |
+| cart.items_count | int | |
+| cart.total | string | Formatted total ex: "١٠٠ ر.س" |
 #}
 {% set important_links = theme.settings.get('important_links') %}
+
 <header class="store-header">
   {# Top Nav #}
-  <div class="top-navbar">
-    <div class="container flex justify-between">
-      <div class="flex-1 flex items-center gap-2">
-          {# Footer Menu #}
-          {% if important_links %}
-            <salla-menu source="footer" topnav></salla-menu>
-          {% endif %}
+  {# Top Nav #}
+  <div class="top-navbar" style="background-color: #516AC8;">
+    <div class="container flex justify-between items-center flex-wrap">
+      <div class="flex items-center gap-6 flex-1">
+        <!-- رقم الجوال -->
+        <div class="flex items-center gap-2">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M4.36675 15.1666C5.12008 15.1666 5.91341 14.9866 6.73341 14.6399C7.53341 14.2999 8.34008 13.8333 9.12675 13.2666C9.90675 12.6933 10.6601 12.0533 11.3734 11.3533C12.0801 10.6399 12.7201 9.88659 13.2867 9.11325C13.8601 8.31325 14.3201 7.51325 14.6467 6.73992C14.9934 5.91325 15.1667 5.11325 15.1667 4.35992C15.1667 3.83992 15.0734 3.34659 14.8934 2.88659C14.7067 2.41325 14.4067 1.97325 14.0001 1.59325C13.4867 1.08659 12.9001 0.833252 12.2734 0.833252C12.0134 0.833252 11.7467 0.893252 11.5201 0.999919C11.2601 1.11992 11.0401 1.29992 10.8801 1.53992L9.33341 3.71992C9.19341 3.91325 9.08675 4.09992 9.01341 4.28659C8.92675 4.48659 8.88008 4.68659 8.88008 4.87992C8.88008 5.13325 8.95341 5.37992 9.09341 5.61325C9.19341 5.79325 9.34675 5.98659 9.54008 6.17992L9.99341 6.65325C9.98675 6.67325 9.98008 6.68659 9.97341 6.69992C9.89341 6.83992 9.73341 7.07992 9.42675 7.43992C9.10008 7.81325 8.79341 8.15325 8.48675 8.46659C8.09341 8.85325 7.76675 9.15992 7.46008 9.41325C7.08008 9.73325 6.83341 9.89325 6.68675 9.96659L6.70008 9.99992L6.21341 9.51992C6.00675 9.31325 5.80675 9.15992 5.61341 9.05992C5.24675 8.83325 4.78008 8.79325 4.31341 8.98659C4.14008 9.05992 3.95341 9.15992 3.75341 9.29992L1.54008 10.8733C1.29341 11.0399 1.11341 11.2533 1.00675 11.5066C0.906748 11.7599 0.860082 11.9933 0.860082 12.2266C0.860082 12.5466 0.933414 12.8666 1.07341 13.1666C1.21342 13.4666 1.38675 13.7266 1.60675 13.9666C1.98675 14.3866 2.40008 14.6866 2.88008 14.8799C3.34008 15.0666 3.84008 15.1666 4.36675 15.1666ZM12.2734 1.83325C12.6401 1.83325 12.9801 1.99325 13.3067 2.31325C13.6134 2.59992 13.8267 2.91325 13.9601 3.25325C14.1001 3.59992 14.1667 3.96659 14.1667 4.35992C14.1667 4.97992 14.0201 5.65325 13.7267 6.34659C13.4267 7.05325 13.0067 7.78659 12.4734 8.51992C11.9401 9.25325 11.3334 9.96659 10.6667 10.6399C10.0001 11.2999 9.28008 11.9133 8.54008 12.4533C7.82008 12.9799 7.08008 13.4066 6.34675 13.7133C5.20675 14.1999 4.14008 14.3133 3.26008 13.9466C2.92008 13.8066 2.62008 13.5933 2.34675 13.2866C2.19341 13.1199 2.07341 12.9399 1.97341 12.7266C1.89341 12.5599 1.85341 12.3866 1.85341 12.2133C1.85341 12.1066 1.87341 11.9999 1.92675 11.8799C1.94675 11.8399 1.98675 11.7666 2.11341 11.6799L4.32675 10.1066C4.46008 10.0133 4.58008 9.94659 4.69341 9.89992C4.84008 9.83992 4.90008 9.77992 5.12675 9.91992C5.26008 9.98659 5.38008 10.0866 5.51341 10.2199L6.02008 10.7199C6.28008 10.9733 6.68008 11.0333 6.98675 10.9199L7.16675 10.8399C7.44008 10.6933 7.76008 10.4666 8.11341 10.1666C8.43341 9.89325 8.78008 9.57325 9.20008 9.15992C9.52675 8.82659 9.85341 8.47325 10.1934 8.07992C10.5067 7.71325 10.7334 7.39992 10.8734 7.13992L10.9534 6.93992C10.9934 6.78659 11.0067 6.69992 11.0067 6.60659C11.0067 6.36659 10.9201 6.15325 10.7534 5.98659L10.2534 5.46659C10.1201 5.33325 10.0201 5.20659 9.95341 5.09325C9.90008 5.00659 9.88008 4.93325 9.88008 4.86659C9.88008 4.81325 9.90008 4.73325 9.93341 4.65325C9.98008 4.54659 10.0534 4.42659 10.1467 4.29992L11.6934 2.11325C11.7601 2.01992 11.8401 1.95325 11.9401 1.90659C12.0467 1.85992 12.1601 1.83325 12.2734 1.83325ZM6.70008 10.0066L6.80675 10.4599L6.62675 9.99325C6.66008 9.98659 6.68675 9.99325 6.70008 10.0066Z"
+              fill="white" />
+            <path
+              d="M3.66667 6.50008C3.94 6.50008 4.16667 6.27341 4.16667 6.00008C4.16667 5.76008 4.40667 5.26008 4.80667 4.83341C5.2 4.41341 5.63333 4.16675 6 4.16675C6.27333 4.16675 6.5 3.94008 6.5 3.66675C6.5 3.39341 6.27333 3.16675 6 3.16675C5.35333 3.16675 4.67333 3.51341 4.08 4.14675C3.52667 4.74008 3.16667 5.46675 3.16667 6.00008C3.16667 6.27341 3.39333 6.50008 3.66667 6.50008Z"
+              fill="white" />
+            <path
+              d="M1.33333 6.49992C1.60667 6.49992 1.83333 6.27325 1.83333 5.99992C1.83333 3.69992 3.7 1.83325 6 1.83325C6.27333 1.83325 6.5 1.60659 6.5 1.33325C6.5 1.05992 6.27333 0.833252 6 0.833252C3.15333 0.833252 0.833333 3.15325 0.833333 5.99992C0.833333 6.27325 1.06 6.49992 1.33333 6.49992Z"
+              fill="white" />
+          </svg>
 
-          {# Language & Currency Component #}
-          <div class="header-buttons">
-              {% if store.settings.is_multilingual or store.settings.currencies_enabled %}
-                  <button type="button" onclick="salla.event.dispatch('localization::open')" class="btn--rounded-gray basis-0">
-                      <span>{{ user.language.name }}</span>
-                      <span class="mx-1.5">|</span> <span>{{ currency.symbol }}</span>
-                  </button>
-                  <salla-localization-modal></salla-localization-modal>
-              {% endif %}
-          </div>
+          <p>{{ store.contacts.mobile }}</p>
+        </div>
 
-          {# Scopes | Branches #}
-          {% if store.scope %}
-              <button class="btn--rounded-gray"
-                      onclick="salla.event.dispatch('scopes::open', {'mode': 'default'})">
-                  <i class="sicon-location rtl:ml-1 ltr:mr-1"></i> {{ store.scope.name }}
-              </button>
-          {% endif %}
+        <svg width="1" height="12" viewBox="0 0 1 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0.5" y1="0" x2="0.5" y2="12" stroke="#F8F7F5" />
+        </svg>
 
-          {# Search bar #}
-          <div class="header-search flex-1">
-            <salla-search inline oval height="36"></salla-search>
-          </div>
+        <!-- البريد الإلكتروني -->
+        <div class="flex items-center gap-2">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M13.4329 13.8885H2.56707C1.91679 13.8876 1.29339 13.6289 0.833617 13.169C0.373841 12.7092 0.115228 12.0857 0.114502 11.4355V4.56414C0.115228 3.9139 0.373856 3.2905 0.833645 2.83072C1.29343 2.37093 1.91683 2.1123 2.56707 2.11157H13.4329C14.0832 2.1123 14.7066 2.37091 15.1665 2.83069C15.6264 3.29046 15.8851 3.91386 15.8859 4.56414V11.4355C15.8852 12.0858 15.6265 12.7093 15.1667 13.1692C14.7068 13.6291 14.0833 13.8878 13.4329 13.8885ZM2.56707 3.25443C2.21983 3.25479 1.88691 3.3929 1.64137 3.63844C1.39583 3.88398 1.25772 4.2169 1.25736 4.56414V11.4355C1.2576 11.7828 1.39565 12.1158 1.64121 12.3615C1.88676 12.6071 2.21975 12.7453 2.56707 12.7456H13.4329C13.7803 12.7453 14.1133 12.6071 14.3589 12.3615C14.6046 12.1159 14.7427 11.7828 14.7431 11.4355V4.56414C14.7426 4.21686 14.6044 3.88394 14.3588 3.63841C14.1132 3.39288 13.7802 3.25479 13.4329 3.25443H2.56707Z"
+              fill="white" />
+            <path
+              d="M7.99307 9.53816C7.51362 9.54288 7.04657 9.38586 6.66735 9.09245L0.556267 4.2225C0.437753 4.128 0.361636 3.99028 0.344661 3.83965C0.327687 3.68902 0.371244 3.53782 0.465752 3.4193C0.56026 3.30079 0.697977 3.22467 0.848606 3.2077C0.999236 3.19072 1.15044 3.23428 1.26895 3.32879L7.37821 8.19873C7.55868 8.32674 7.7746 8.39523 7.99586 8.39466C8.21712 8.39408 8.43269 8.32447 8.61249 8.19553L14.6463 3.33108C14.7642 3.23596 14.9151 3.19158 15.0657 3.2077C15.2164 3.22382 15.3544 3.29911 15.4495 3.41702C15.5446 3.53493 15.589 3.68579 15.5729 3.83642C15.5568 3.98705 15.4815 4.1251 15.3636 4.22022L9.33158 9.08467C8.94975 9.38325 8.47775 9.54316 7.99307 9.53816Z"
+              fill="white" />
+          </svg>
+
+          <p>{{ store.contacts.email }}</p>
+        </div>
       </div>
 
-      <salla-contacts is-header></salla-contacts>
+      <!-- القسم الجديد (العملة + الروابط) -->
+      <div class="flex items-center gap-4 text-white text-sm">
+        <div class="header-buttons">
+          {% if store.settings.is_multilingual %}
+          <button type="button" onclick="salla.event.dispatch('localization::open')" class="btn--rounded-gray"
+            style="background-color: transparent;">
+            <span class="flag iti__flag iti__{{ user.language.country_code }} rounded-sm"></span>
+            <span class="mx-1.5">{{ user.language.name }} - </span>
+            <span>{{ user.currency.symbol }}</span>
+          </button>
+          <salla-localization-modal></salla-localization-modal>
+          {% endif %}
+        </div>
+
+        <svg width="1" height="12" viewBox="0 0 1 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0.5" y1="0" x2="0.5" y2="12" stroke="#F8F7F5" />
+        </svg>
+
+        <!-- روابط إضافية -->
+        <a href="/page/refund-policy" class="hover:underline">سياسة الاستبدال والاسترجاع</a>
+
+        <svg width="1" height="12" viewBox="0 0 1 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <line x1="0.5" y1="0" x2="0.5" y2="12" stroke="#F8F7F5" />
+        </svg>
+
+        <a href="/page/contact-us" class="hover:underline">تواصل معنا</a>
+      </div>
     </div>
   </div>
 
+
   {# Main Nav #}
-  <div id="mainnav" class="main-nav-container shadow-default bg-white flex items-center">
-      <div class="inner bg-inherit w-full">
-          <div class="container">
-              <div class="flex items-stretch justify-between relative">
-                  <div class="flex items-center">
-                      <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu">
-                        <i class="sicon-menu text-primary text-2xl"></i>
-                      </a>
-                      <a class="navbar-brand" href="{{ store.url }}">
-                          <img fetchpriority="high" width="100%" height="100%" loading="eager" src="{{ store.logo }}" alt="{{ store.name }} logo">
-                          {% if is_page('index') %}
-                            <h1 class="sr-only">{{ store.name }}</h1>
-                          {% else %}
-                            <h2 class="sr-only">{{ store.name }}</h2>
-                          {% endif %}
-                      </a>
-                      <custom-main-menu></custom-main-menu>
-                  </div>
-                  <div class="flex items-center justify-end my-2.5">
-                      {% if user.type=='user' %}
-                        <salla-user-menu avatar-only show-header></salla-user-menu>
-                      {% else %}
-                          <button class="header-btn" aria-label="user-icon" onclick="salla.event.dispatch('login::open')">
-                            <i class="header-btn__icon sicon-user-circle"></i>
-                          </button>
-                      {% endif %}
-                      <salla-cart-summary class="ml-4 rtl:ml-[unset] rtl:mr-4">
-                        <i slot="icon" class="header-btn__icon icon sicon-shopping-bag"></i>
-                      </salla-cart-summary>
-                  </div>
-              </div>
+  <div id="mainnav" class="main-nav-container shadow-default bg-white">
+    <div class="inner bg-inherit">
+      <div class="container">
+        <div class="flex items-stretch justify-between relative">
+          <div class="flex items-center gap-10" style="width: 75%;" >
+            <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu"
+              aria-label="Open-menu">
+              <i class="sicon-menu text-primary text-2xl"></i>
+            </a>
+
+            {# <a class="navbar-brand" href="{{ store.url }}">
+              <img fetchpriority="high" width="100%" height="100%" loading="eager" src="{{ store.logo }}"
+                alt="{{ store.name }} logo">
+              {% if is_page('index') %}
+              <h1 class="sr-only">{{ store.name }}</h1>
+              {% else %}
+              <h2 class="sr-only">{{ store.name }}</h2>
+              {% endif %}
+            </a> #}
+            <p style="font-size: 24px; color:#0F1939;font-weight:700">LOGO</p>
+            {# Search bar #}
+            <div class="header-search "  style="width: 90%;" >
+              <salla-search inline oval height="36"></salla-search>
+            </div>
+            {# <custom-main-menu></custom-main-menu> #}
           </div>
+
+          <div class="flex items-center justify-end">
+            {% if user.type == 'user' %}
+            <salla-user-menu avatar-only show-header></salla-user-menu>
+            {% else %}
+            <button class="header-btn" aria-label="user-icon" onclick="salla.event.dispatch('login::open')">
+              <i class="header-btn__icon sicon-user-circle"></i>
+            </button>
+            {% endif %}
+
+            <salla-cart-summary class="ml-4 rtl:ml-[unset] rtl:mr-4">
+              <i slot="icon" class="header-btn__icon icon sicon-shopping-bag"></i>
+            </salla-cart-summary>
+
+
+          </div>
+        </div>
       </div>
+    </div>
   </div>
 </header>
+
 {% if store.scope %}
-    <salla-scopes selection="{{ store.scope.display_as == 'popup' ? 'mandatory' : 'optional' }}"></salla-scopes>
+<salla-scopes selection="{{ store.scope.display_as == 'popup' ? 'mandatory' : 'optional' }}"></salla-scopes>
 {% endif %}
