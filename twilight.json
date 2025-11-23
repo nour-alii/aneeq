@@ -1084,6 +1084,104 @@
                     "maxLength": "250"
                 }
             ]
+        },
+        {
+            "key": "1aed198d-80bb-4af4-b0d2-7abbb75d9179",
+            "title": {
+                "en": "categories",
+                "ar": "الفئات"
+            },
+            "icon": "sicon-store",
+            "path": "home.categories",
+            "fields": [
+                {
+                    "id": "category_title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "categories_title",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": true,
+                    "minLength": 6,
+                    "maxLength": 30
+                },
+                {
+                    "id": "category_description",
+                    "type": "string",
+                    "format": "text",
+                    "label": "categories_description",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": false,
+                    "minLength": 6,
+                    "maxLength": "150"
+                },
+                {
+                    "id": "collection",
+                    "type": "collection",
+                    "format": "collection",
+                    "label": "categories",
+                    "description": null,
+                    "labelHTML": null,
+                    "item_label": null,
+                    "icon": "sicon-list-add",
+                    "fields": [
+                        {
+                            "id": "collection.categories.category_image",
+                            "type": "string",
+                            "format": "image",
+                            "label": "category_Image",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "e.g. https://hostname.com/image.png",
+                            "icon": "sicon-image",
+                            "value": null,
+                            "required": true
+                        },
+                        {
+                            "id": "collection.categories.category_name",
+                            "type": "string",
+                            "format": "text",
+                            "label": "category_name",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "Placeholder text ..",
+                            "icon": "sicon-format-text-alt",
+                            "value": null,
+                            "multilanguage": false,
+                            "required": true,
+                            "minLength": 6,
+                            "maxLength": 30
+                        },
+                        {
+                            "id": "collection.categories.category_number",
+                            "type": "string",
+                            "format": "text",
+                            "label": "category_number",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "Placeholder text ..",
+                            "icon": "sicon-format-text-alt",
+                            "value": null,
+                            "multilanguage": false,
+                            "required": false,
+                            "minLength": 6,
+                            "maxLength": 30
+                        }
+                    ],
+                    "value": [],
+                    "minLength": 1,
+                    "maxLength": 5
+                }
+            ]
         }
     ],
     "support_url": "https://aneeqsa.com/",
