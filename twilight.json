@@ -1250,6 +1250,16 @@
                     "maxLength": 5
                 }
             ]
+        },
+        {
+            "key": "e7a57900-9661-4fa7-b344-c7bc024156d3",
+            "title": {
+                "en": "banner1",
+                "ar": "اعلان1"
+            },
+            "icon": "sicon-store",
+            "path": "home.banner1",
+            "fields": []
         }
     ],
     "support_url": "https://aneeqsa.com/",
