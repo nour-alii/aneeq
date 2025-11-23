@@ -1182,12 +1182,6 @@ select {
 .h-px {
     height: 1px;
 }
-.h-96 {
-    height: 24rem;
-}
-.h-\[224px\] {
-    height: 224px;
-}
 .max-h-0 {
     max-height: 0px;
 }
@@ -1262,12 +1256,6 @@ select {
 }
 .w-full {
     width: 100%;
-}
-.w-\[224\] {
-    width: 224;
-}
-.w-\[224px\] {
-    width: 224px;
 }
 .min-w-0 {
     min-width: 0px;
@@ -1586,9 +1574,6 @@ select {
 .rounded-sm {
     border-radius: 0.125rem;
 }
-.rounded-\[50\%\] {
-    border-radius: 50%;
-}
 .rounded-b-none {
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
@@ -1802,10 +1787,6 @@ select {
 .py-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
-}
-.py-16 {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
 }
 .\!pt-1 {
     padding-top: 0.25rem !important;
@@ -23961,9 +23942,6 @@ body.font-dinnextltarabic-regular .btn--add-to-cart {
     .sm\:items-start {
         align-items: flex-start;
     }
-    .sm\:justify-start {
-        justify-content: flex-start;
-    }
     .sm\:gap-4 {
         gap: 1rem;
     }
@@ -24032,9 +24010,6 @@ body.font-dinnextltarabic-regular .btn--add-to-cart {
     }
     .md\:h-\[400px\] {
         height: 400px;
-    }
-    .md\:h-\[500px\] {
-        height: 500px;
     }
     .md\:\!w-2\/4 {
         width: 50% !important;
@@ -24201,9 +24176,6 @@ body.font-dinnextltarabic-regular .btn--add-to-cart {
     .lg\:hidden {
         display: none;
     }
-    .lg\:h-\[600px\] {
-        height: 600px;
-    }
     .lg\:min-h-\[528px\] {
         min-height: 528px;
     }
@@ -24279,14 +24251,6 @@ body.font-dinnextltarabic-regular .btn--add-to-cart {
         padding-left: 0px;
         padding-right: 0px;
     }
-    .lg\:px-12 {
-        padding-left: 3rem;
-        padding-right: 3rem;
-    }
-    .lg\:py-20 {
-        padding-top: 5rem;
-        padding-bottom: 5rem;
-    }
     .lg\:pb-11 {
         padding-bottom: 2.75rem;
     }
@@ -24313,9 +24277,6 @@ body.font-dinnextltarabic-regular .btn--add-to-cart {
     }
 }
 @media (min-width: 1280px) {
-    .xl\:h-\[700px\] {
-        height: 700px;
-    }
     .xl\:gap-8 {
         gap: 2rem;
     }
@@ -24426,9 +24387,6 @@ body.font-dinnextltarabic-regular .btn--add-to-cart {
     border-left-width: 1px;
 }
 @media (min-width: 640px) {
-    .ltr\:sm\:justify-end:where([dir="ltr"], [dir="ltr"] *) {
-        justify-content: flex-end;
-    }
     .sm\:ltr\:text-left:where([dir="ltr"], [dir="ltr"] *) {
         text-align: left;
     }
