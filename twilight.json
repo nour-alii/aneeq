@@ -1312,7 +1312,65 @@
             },
             "icon": "sicon-store",
             "path": "home.discount-banner",
-            "fields": []
+            "fields": [
+                {
+                    "id": "discount_image",
+                    "type": "string",
+                    "format": "image",
+                    "label": "discount_image",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "e.g. https://hostname.com/image.png",
+                    "icon": "sicon-image",
+                    "value": null,
+                    "required": false
+                },
+                {
+                    "id": "discount_title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "discount_title",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": false,
+                    "minLength": 6,
+                    "maxLength": 30
+                },
+                {
+                    "id": "discount_description",
+                    "type": "string",
+                    "format": "text",
+                    "label": "discount_description",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": false,
+                    "minLength": 6,
+                    "maxLength": 30
+                },
+                {
+                    "id": "discount_units",
+                    "type": "number",
+                    "format": "units",
+                    "label": "discount_units",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "Insert value",
+                    "icon": "sicon-percentage",
+                    "value": null,
+                    "required": false,
+                    "unit": "%",
+                    "minimum": 0,
+                    "maximum": 100
+                }
+            ]
         }
     ],
     "support_url": "https://aneeqsa.com/",
