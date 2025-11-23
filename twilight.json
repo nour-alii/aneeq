@@ -1031,6 +1031,16 @@
                     "maxLength": 30
                 }
             ]
+        },
+        {
+            "key": "2f6c2617-2ecb-4516-a81a-757c1906dda4",
+            "title": {
+                "en": "hero-section",
+                "ar": "هيرو سكشن"
+            },
+            "icon": "sicon-store",
+            "path": "home.hero-section",
+            "fields": []
         }
     ],
     "support_url": "https://aneeqsa.com/",
