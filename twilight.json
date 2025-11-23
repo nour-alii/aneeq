@@ -1135,7 +1135,7 @@
                     "icon": "sicon-list-add",
                     "fields": [
                         {
-                            "id": "collection.categories.category_image",
+                            "id": "collection.category_image",
                             "type": "string",
                             "format": "image",
                             "label": "category_Image",
@@ -1147,7 +1147,7 @@
                             "required": true
                         },
                         {
-                            "id": "collection.categories.category_name",
+                            "id": "collection.category_name",
                             "type": "string",
                             "format": "text",
                             "label": "category_name",
@@ -1162,7 +1162,7 @@
                             "maxLength": 30
                         },
                         {
-                            "id": "collection.categories.category_number",
+                            "id": "collection.category_number",
                             "type": "string",
                             "format": "text",
                             "label": "category_number",
