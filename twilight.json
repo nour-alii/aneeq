@@ -1371,6 +1371,16 @@
                     "maximum": 100
                 }
             ]
+        },
+        {
+            "key": "6cd6fdf2-1ff7-498d-ae58-a55ef9876aab",
+            "title": {
+                "en": "newsletter",
+                "ar": "النشرة البريدية"
+            },
+            "icon": "sicon-store",
+            "path": "home.newsletter",
+            "fields": []
         }
     ],
     "support_url": "https://aneeqsa.com/",
