@@ -1338,7 +1338,7 @@
                     "multilanguage": false,
                     "required": false,
                     "minLength": 6,
-                    "maxLength": 30
+                    "maxLength": "300"
                 },
                 {
                     "id": "discount_description",
@@ -1353,7 +1353,7 @@
                     "multilanguage": false,
                     "required": false,
                     "minLength": 6,
-                    "maxLength": 30
+                    "maxLength": "300"
                 },
                 {
                     "id": "discount_units",
