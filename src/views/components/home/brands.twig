@@ -1,4 +1,4 @@
-{#
+{# 
 | Variable                       | Type    | Description                                                                  |
 |--------------------------------|---------|------------------------------------------------------------------------------|
 | component                      | object  | Contains merchant settings for fields from twilight.json `component` section |
@@ -6,37 +6,221 @@
 | position                       | int     | Sorting number start from zero                                               |
 #}
 {% set display_all_url = theme.settings.get('is_more_button_enabled') %}
-<section class="s-block s-block--logos-slider s-block--full-bg bg-gray-100 pt-8 sm:pt-12 pb-8 sm:pb-20">
+<section class="s-block s-block--logos-slider s-block--full-bg pt-8 sm:pt-12 pb-8 sm:pb-20">
     <div class="container">
     
         {% if component.title or component.show_all %}
-          <div class="s-block__title">
+          <div class="s-block__title" style="position: relative;">
             {% if component.title %}
               <div class="right-side">
                 <h2>{{ component.title }}</h2>
-                {# <p>عنوان فرعي توصيفي صغير</p> #}
+                <p style="color: #666666;font-size:16px">يمكنك التسوق من خلال الماركات التجارية</p>
               </div>
             {% endif %}
-            {% if display_all_url %}
-              <a href="{{ link('brands') }}" class="s-block__display-all"> {{ trans('blocks.home.display_all') }} <i class="sicon-arrow-left"></i></a>
+            
+            {# أزرار التنقل في الأعلى بدل عرض الكل #}
+            {% if component.brands|length > 5 %}
+            <div class="slider-nav-top" style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); display: flex; gap: 10px;">
+                <button class="brand-slider-prev custom-prev-btn s-slider-prev s-slider-nav-arrow" style="background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.15); width: 40px; height: 40px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                    <i class="sicon-arrow-right" style="color: #374151; font-size: 16px;"></i>
+                </button>
+                <button class="brand-slider-next custom-next-btn s-slider-next s-slider-nav-arrow" style="background: white; box-shadow: 0 2px 8px rgba(0,0,0,0.15); width: 40px; height: 40px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                    <i class="sicon-arrow-left" style="color: #374151; font-size: 16px;"></i>
+                </button>
+            </div>
             {% endif %}
           </div>
         {% endif %}
 
-        <div class="grid grid-cols-2 {{ component.brands|length > 5 ? 'md:grid-cols-4' : 'md:grid-cols-5' }} grid-flow-row gap-4 lg:gap-8">
+        {# سلايدر الماركات باستخدام salla-slider #}
+        <salla-slider 
+            id="brands-slider-{{ position }}"
+            auto-play 
+            type="fullwidth"
+            class="brands-slider-main"
+            slides-per-view="5"
+            slides-per-group="1"
+            space-between="20"
+            breakpoints='{"320": {"slidesPerView": 2}, "640": {"slidesPerView": 3}, "768": {"slidesPerView": 4}, "1024": {"slidesPerView": 5}, "1280": {"slidesPerView": 6}}'>
+            
             {% for brand in component.brands %}
-                {% if loop.first or loop.index0%3==0 %}
-                    <a href="{{ brand.url }}"
-                       class="brand-item {{ component.brands|length > 5  ? 'sm:row-span-2 sm:h-auto': '' }}">
-                        <img class="max-h-full" width="400" height="300" src="{{ brand.logo }}" alt="{{ brand.name }}"/>
+                <div slot="items" class="brand-slide-item">
+                    <a href="{{ brand.url }}" class="brand-item block bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 p-4 h-full">
+                        <div class="brand-logo-container flex items-center justify-center h-20 mb-3">
+                            <img class="max-h-full max-w-full object-contain" 
+                                 width="100" 
+                                 height="60" 
+                                 src="{{ brand.logo }}" 
+                                 alt="{{ brand.name }}"
+                                 loading="lazy"/>
+                        </div>
+                        {# <div class="brand-name text-center">
+                            <span class="text-sm font-medium text-gray-700 line-clamp-2">{{ brand.name }}</span>
+                        </div> #}
                     </a>
-                {% else %}
-                    <a href="{{ brand.url }}"
-                       class="brand-item">
-                        <img class="max-h-full" width="400" height="300" src="{{ brand.logo }}" alt="{{ brand.name }}"/>
-                    </a>
-                {% endif %}
+                </div>
             {% endfor %}
-        </div>
+        </salla-slider>
     </div>
 </section>
+
+<style>
+.brands-slider-main {
+    padding: 1rem 0;
+}
+
+.brand-slide-item {
+    height: auto;
+}
+
+.brand-item {
+    transition: all 0.3s ease;
+    border: 1px solid #f3f4f6;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.brand-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: #e5e7eb;
+}
+
+.brand-logo-container {
+    min-height: 5rem;
+    flex-shrink: 0;
+}
+
+.brand-name {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* إخفاء أزرار التنقل الافتراضية */
+.brands-slider-main ::part(slider-nav) {
+    display: none !important;
+}
+
+/* تخصيص الباجينيشن */
+.brands-slider-main ::part(slider-pagination) {
+    bottom: -30px;
+}
+
+.brands-slider-main ::part(slider-pagination-bullet) {
+    background: #d1d5db;
+    width: 8px;
+    height: 8px;
+    opacity: 0.7;
+}
+
+.brands-slider-main ::part(slider-pagination-bullet-active) {
+    background: #374151;
+    opacity: 1;
+}
+
+/* تصميم أزرار التنقل المخصصة */
+.custom-prev-btn:hover,
+.custom-next-btn:hover {
+    background: #f9fafb !important;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+/* تصميم متجاوب إضافي */
+@media (max-width: 768px) {
+    .slider-nav-top {
+        display: none !important;
+    }
+    
+    .brand-item {
+        padding: 0.75rem;
+    }
+    
+    .brand-logo-container {
+        height: 4rem;
+        min-height: 4rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .brand-name span {
+        font-size: 0.75rem;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const sliderId = 'brands-slider-{{ position }}';
+    const sliderElement = document.getElementById(sliderId);
+    
+    if (sliderElement) {
+        // الانتظار حتى يتم تحميل السلايدر
+        setTimeout(() => {
+            const slider = sliderElement.__swiper;
+            
+            if (slider) {
+                const prevBtn = document.querySelector('.custom-prev-btn');
+                const nextBtn = document.querySelector('.custom-next-btn');
+                
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', () => {
+                        slider.slidePrev();
+                    });
+                }
+                
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', () => {
+                        slider.slideNext();
+                    });
+                }
+                
+                // إخفاء الأزرار عندما لا تكون هناك حاجة لها
+                const updateButtons = () => {
+                    if (prevBtn && nextBtn) {
+                        prevBtn.style.opacity = slider.isBeginning ? '0.5' : '1';
+                        nextBtn.style.opacity = slider.isEnd ? '0.5' : '1';
+                        prevBtn.style.cursor = slider.isBeginning ? 'not-allowed' : 'pointer';
+                        nextBtn.style.cursor = slider.isEnd ? 'not-allowed' : 'pointer';
+                    }
+                };
+                
+                slider.on('slideChange', updateButtons);
+                updateButtons();
+            }
+        }, 1000);
+    }
+});
+
+// طريقة بديلة إذا لم تعمل الطريقة الأولى
+document.addEventListener('salla-slider::mounted', function(e) {
+    if (e.detail.id === 'brands-slider-{{ position }}') {
+        const slider = e.detail.slider;
+        const prevBtn = document.querySelector('.custom-prev-btn');
+        const nextBtn = document.querySelector('.custom-next-btn');
+        
+        if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => slider.slidePrev());
+            nextBtn.addEventListener('click', () => slider.slideNext());
+            
+            // تحديث حالة الأزرار
+            slider.on('slideChange', function() {
+                prevBtn.style.opacity = slider.isBeginning ? '0.5' : '1';
+                nextBtn.style.opacity = slider.isEnd ? '0.5' : '1';
+                prevBtn.style.cursor = slider.isBeginning ? 'not-allowed' : 'pointer';
+                nextBtn.style.cursor = slider.isEnd ? 'not-allowed' : 'pointer';
+            });
+        }
+    }
+});
+</script>
