@@ -1,0 +1,85 @@
+<div class="discount-banner">
+    <svg class="discount-svg1" width="136" height="56" viewBox="0 0 136 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <mask id="mask0_2039_961" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="137"
+            height="29">
+            <path d="M0.00012207 0L136 0V28.0516L0.00012207 28.0516L0.00012207 0Z" fill="white" />
+        </mask>
+        <g mask="url(#mask0_2039_961)">
+            <path d="M95.643 39.195L140.473 -2.17098L136.888 -5.89575L92.0571 35.4702" fill="white"
+                fill-opacity="0.32" />
+            <path d="M73.2283 39.195L118.059 -2.17098L114.473 -5.89575L69.6425 35.4702" fill="white"
+                fill-opacity="0.32" />
+            <path d="M50.8135 39.195L95.6438 -2.17098L92.058 -5.89575L47.2273 35.4702" fill="white"
+                fill-opacity="0.32" />
+            <path d="M28.3976 39.195L73.228 -2.17098L69.6422 -5.89575L24.8118 35.4702" fill="white"
+                fill-opacity="0.32" />
+            <path d="M5.98196 39.195L50.8127 -2.17098L47.2265 -5.89575L2.39612 35.4702" fill="white"
+                fill-opacity="0.32" />
+            <path d="M-16.4318 39.195L28.3985 -2.17098L24.8126 -5.89575L-20.0181 35.4702" fill="white"
+                fill-opacity="0.32" />
+            <path d="M-38.8484 39.195L5.98201 -2.17098L2.39617 -5.89575L-42.4342 35.4702" fill="white"
+                fill-opacity="0.32" />
+        </g>
+        <mask id="mask1_2039_961" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="27" width="136"
+            height="30">
+            <path d="M0.00012207 27.9485L135.684 27.9485V56.0001L0.00012207 56.0001L0.00012207 27.9485Z" fill="white" />
+        </mask>
+        <g mask="url(#mask1_2039_961)">
+            <path d="M91.7729 20.4912L136.603 61.8572L140.189 58.1324L95.3588 16.7668" fill="white"
+                fill-opacity="0.32" />
+            <path d="M69.3579 20.4912L114.188 61.8572L117.774 58.1324L72.9437 16.7668" fill="white"
+                fill-opacity="0.32" />
+            <path d="M46.9427 20.4912L91.7736 61.8572L95.3594 58.1324L50.5286 16.7668" fill="white"
+                fill-opacity="0.32" />
+            <path d="M24.5276 20.4912L69.358 61.8572L72.9438 58.1324L28.1134 16.7668" fill="white"
+                fill-opacity="0.32" />
+            <path d="M2.11206 20.4912L46.9424 61.8572L50.5282 58.1324L5.69789 16.7668" fill="white"
+                fill-opacity="0.32" />
+            <path d="M-20.3026 20.4912L24.5281 61.8572L28.1139 58.1324L-16.7168 16.7668" fill="white"
+                fill-opacity="0.32" />
+            <path d="M-42.7192 20.4912L2.11155 61.8572L5.69737 58.1324L-39.133 16.7668" fill="white"
+                fill-opacity="0.32" />
+        </g>
+    </svg>
+    <svg class="discount-svg2" width="40" height="140" viewBox="0 0 40 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 1.12158L39.535 18.3008L40 17.1793L0.464863 0.000141144" fill="white" fill-opacity="0.32" />
+        <path d="M0 16.6772L39.535 33.8564L40 32.735L0.464863 15.5558" fill="white" fill-opacity="0.32" />
+        <path d="M0 32.1748L39.535 48.4968L40 47.4315L0.464863 31.1112" fill="white" fill-opacity="0.32" />
+        <path d="M0 46.8733L39.535 64.0525L40 62.9311L0.464863 45.7519" fill="white" fill-opacity="0.32" />
+        <path d="M0 62.3727L39.535 78.6929L40 77.6292L0.464863 61.3073" fill="white" fill-opacity="0.32" />
+        <path d="M0 77.0694L39.535 94.2485L40 93.127L0.464863 75.9479" fill="white" fill-opacity="0.32" />
+        <path d="M0 92.5688L39.535 108.889L40 107.825L0.464863 91.5034" fill="white" fill-opacity="0.32" />
+        <path d="M0 107.264L39.535 124.445L40 123.323L0.464863 106.144" fill="white" fill-opacity="0.32" />
+        <path d="M0 122.821L39.535 140L40 138.881L0.464863 121.699" fill="white" fill-opacity="0.32" />
+    </svg>
+    <div class="info-discount-banner" >
+<p>{{component.discount_title}}</p>
+    <p>{{component.discount_description}}</p>
+    <img src="{{component.discount_image}}" />
+    </div>
+    
+</div>
+<style>
+    .discount-banner {
+        background: radial-gradient(55.6% 55.6% at 48.85% 44.4%, #96ACFF 0%, #516AC8 100%);
+        height: 500px;
+        position: relative;
+    }
+    .discount-svg1{
+        position: absolute;
+        top: 20px;
+        left: 0;
+    }
+    .discount-svg2{
+         position: absolute;
+        bottom: 30px;
+        right: 60px;
+    }
+    .info-discount-banner{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+</style>
