@@ -1788,10 +1788,6 @@ select {
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
-.py-6 {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-}
 .\!pt-1 {
     padding-top: 0.25rem !important;
 }
@@ -23957,10 +23953,6 @@ body.font-dinnextltarabic-regular .btn--add-to-cart {
     }
     .sm\:p-1 {
         padding: 0.25rem;
-    }
-    .sm\:py-16 {
-        padding-top: 4rem;
-        padding-bottom: 4rem;
     }
     .sm\:pb-0 {
         padding-bottom: 0px;
