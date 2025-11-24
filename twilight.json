@@ -1371,32 +1371,6 @@
                     "maximum": 100
                 }
             ]
-        },
-        {
-            "key": "4996a153-1d57-40e5-b828-a3165d644fb8",
-            "title": {
-                "en": "video-section",
-                "ar": "مقطع الفيديو"
-            },
-            "icon": "sicon-store",
-            "path": "home.video-section",
-            "fields": [
-                {
-                    "id": "video-url",
-                    "type": "string",
-                    "format": "url",
-                    "inputType": "url",
-                    "label": "video_url",
-                    "description": null,
-                    "labelHTML": null,
-                    "placeholder": "e.g. https://salla.sa",
-                    "icon": "sicon-link",
-                    "value": null,
-                    "required": true,
-                    "minLength": 6,
-                    "maxLength": "500"
-                }
-            ]
         }
     ],
     "support_url": "https://aneeqsa.com/",
