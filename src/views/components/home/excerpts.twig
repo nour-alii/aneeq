@@ -12,6 +12,7 @@
     .all-excerpts {
         margin-top: 110px;
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: center;
         gap: 20px;
@@ -56,5 +57,25 @@
         margin-top: 15px;
         cursor: pointer;
         font-weight: bold;
+    }
+
+    @media screen and (max-width: 922px) {
+        .one-excerpt {
+            width: 48%;
+        }
+    }
+
+    @media screen and (max-width: 584px) {
+        .one-excerpt {
+            width: 100%;
+        }
+
+        .one-excerpt:last-child {
+            width: 100%;
+        }
+
+        .all-excerpts {
+            margin-top: 50px;
+        }
     }
 </style>

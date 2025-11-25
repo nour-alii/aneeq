@@ -76,10 +76,11 @@
     </svg>
 
     <img src="{{component.banner1_image}}" />
-    <div>
+    <div class="inf-banner-right">
         <p class="banner1-title">{{component.banner1_title}}</p>
         <p class="banner1-desc">{{component.banner1_description}}</p>
-        <svg style="margin-top: 60px;" width="300" height="65" viewBox="0 0 328 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg class="inf-banner-right-svg" width="300" height="65" viewBox="0 0 328 72" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
             <path d="M328 1.34982H11.0115L25.7768 35.9998L11.0115 70.6499H328L313.235 35.9998L328 1.34982Z"
                 fill="#E3AF64" />
             <path
@@ -131,5 +132,66 @@
         position: absolute;
         bottom: 0px;
         left: 40px;
+    }
+
+    .inf-banner-right {
+        width: 50%;
+    }
+
+    .inf-banner-right-svg {
+        margin-top: 60px;
+    }
+
+    @media screen and (max-width: 922px) {
+        .inf-banner-right {
+            width: 60%;
+        }
+
+        .banner1 img {
+            margin-left: 20px;
+            width: 50%;
+        }
+
+        .banner-svg2 {
+            left: 10px;
+        }
+
+        .banner1 {
+            height: auto;
+        }
+
+        .banner1-title {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+
+        .banner1-desc {
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .inf-banner-right-svg {
+            margin-top: 20px;
+        }
+    }
+
+    @media screen and (max-width: 725px) {
+        .banner1 {
+            flex-direction: column-reverse;
+            padding: 80px 0px 0px 0px;
+        }
+        .inf-banner-right {
+            width: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .banner1 img {
+            margin-left: 0px;
+            width: 70%;
+        }
     }
 </style>

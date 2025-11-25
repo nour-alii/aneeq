@@ -9,12 +9,12 @@
 | limit | int | Number of products to be shown |
 #}
 {% set is_vertical = theme.settings.get('vertical_fixed_products', true) %}
-<section class="s-block container" style="padding: 0px 30px;">
+<section class="s-block container padding-container">
   {% if title %}
   <div class="s-block__title">
     <div class="right-side">
       <h2>{{ title }}</h2>
-      <p style="color: #666666;font-size:16px" >تسوق أحدث المنتجات المميزة المضافة حديثا</p>
+      <p style="color: #666666;font-size:16px">تسوق أحدث المنتجات المميزة المضافة حديثا</p>
     </div>
     {% if display_all_url %}
     <a href="{{ display_all_url }}" class="s-block__display-all">{{ trans('blocks.home.display_all') }} <i
@@ -33,5 +33,15 @@
   .s-product-card-image img {
     height: 224px !important;
     object-fit: contain !important;
+  }
+
+  .padding-container {
+    padding: 0px 30px;
+  }
+
+  @media screen and (max-width:584px) {
+    .padding-container {
+      padding: 0px;
+    }
   }
 </style>

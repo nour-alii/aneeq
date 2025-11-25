@@ -10,7 +10,7 @@
 | limit | int | Number of products to be shown |
 #}
 
-<section id="best-offers-{{ position }}-slider" style="padding: 0px 30px;"
+<section id="best-offers-{{ position }}-slider padding-container" 
   class="s-block s-block--best-offers container overflow-hidden">
   {% if products|length %}
   <salla-products-slider source="{{ products.source }}" limit="{{ limit }}" autoplay
@@ -19,3 +19,15 @@
     slider-id="slider-with-bg-{{ position }}"></salla-products-slider>
   {% endif %}
 </section>
+
+<style>
+  .padding-container {
+    padding: 0px 30px;
+  }
+
+  @media screen and (max-width:584px) {
+    .padding-container {
+      padding: 0px;
+    }
+  }
+</style>

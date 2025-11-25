@@ -941,6 +941,9 @@ select {
 .top-full {
     top: 100%;
 }
+.top-1\/2 {
+    top: 50%;
+}
 .-z-1 {
     z-index: -1;
 }
@@ -1167,9 +1170,6 @@ select {
 .h-\[34px\] {
     height: 34px;
 }
-.h-auto {
-    height: auto;
-}
 .h-banner {
     height: 200px;
 }
@@ -1290,6 +1290,9 @@ select {
 .flex-shrink {
     flex-shrink: 1;
 }
+.flex-shrink-0 {
+    flex-shrink: 0;
+}
 .shrink-0 {
     flex-shrink: 0;
 }
@@ -1314,6 +1317,11 @@ select {
     transform: translate(var(--tw-translate-x), 1rem) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
+.-translate-y-1\/2 {
+    --tw-translate-y: -50%;
+    transform: translate(var(--tw-translate-x), -50%) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
 .rotate-45 {
     --tw-rotate: 45deg;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(45deg) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
@@ -1327,6 +1335,15 @@ select {
 }
 .resize {
     resize: both;
+}
+.snap-x {
+    scroll-snap-type: x var(--tw-scroll-snap-strictness);
+}
+.snap-mandatory {
+    --tw-scroll-snap-strictness: mandatory;
+}
+.snap-center {
+    scroll-snap-align: center;
 }
 .grid-flow-row {
     grid-auto-flow: row;
@@ -1540,6 +1557,9 @@ select {
 }
 .overflow-hidden {
     overflow: hidden;
+}
+.overflow-x-auto {
+    overflow-x: auto;
 }
 .overflow-x-hidden {
     overflow-x: hidden;
@@ -2100,6 +2120,12 @@ select {
     --tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
     --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
     box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
+}
+.shadow-lg {
+    --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
+    box-shadow: 0 0 rgba(0,0,0,0), 0 0 rgba(0,0,0,0), 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 rgba(0,0,0,0)), var(--tw-ring-shadow, 0 0 rgba(0,0,0,0)), var(--tw-shadow);
 }
 .outline {
@@ -20156,9 +20182,7 @@ input[type=radio].sr-only:checked ~ div#nav-cart span {
     border-color: rgba(243, 244, 246, var(--tw-border-opacity, 1));
 }
 .copyright-text p {
-    --tw-text-opacity: 1;
-    color: rgba(55, 65, 81, 1);
-    color: rgba(55, 65, 81, var(--tw-text-opacity, 1));
+  color: white !important;
 }
 .main-menu > li > a[href*=offer] {
     --tw-text-opacity: 1;
@@ -23844,6 +23868,11 @@ body.font-dinnextltarabic-regular .btn--add-to-cart {
 .target\:btn:target:hover {
     opacity: 0.8;
 }
+.hover\:bg-gray-50:hover {
+    --tw-bg-opacity: 1;
+    background-color: rgba(249, 250, 251, 1);
+    background-color: rgba(249, 250, 251, var(--tw-bg-opacity, 1));
+}
 .hover\:text-dark:hover {
     --tw-text-opacity: 1;
     color: rgba(29, 31, 31, 1);
@@ -23883,9 +23912,6 @@ body.font-dinnextltarabic-regular .btn--add-to-cart {
     .sm\:col-span-2 {
         grid-column: span 2 / span 2;
     }
-    .sm\:row-span-2 {
-        grid-row: span 2 / span 2;
-    }
     .sm\:mb-0 {
         margin-bottom: 0px;
     }
@@ -23912,9 +23938,6 @@ body.font-dinnextltarabic-regular .btn--add-to-cart {
     }
     .sm\:grid {
         display: grid;
-    }
-    .sm\:h-auto {
-        height: auto;
     }
     .sm\:h-full {
         height: 100%;
@@ -24001,6 +24024,9 @@ body.font-dinnextltarabic-regular .btn--add-to-cart {
     .md\:mt-0 {
         margin-top: 0px;
     }
+    .md\:block {
+        display: block;
+    }
     .md\:flex {
         display: flex;
     }
@@ -24051,9 +24077,6 @@ body.font-dinnextltarabic-regular .btn--add-to-cart {
     }
     .md\:grid-cols-4 {
         grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-    .md\:grid-cols-5 {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
     }
     .md\:grid-cols-\[repeat\(3\2c minmax\(0\2c 1fr\)\)\] {
         grid-template-columns: repeat(3,minmax(0,1fr));
@@ -24222,9 +24245,6 @@ body.font-dinnextltarabic-regular .btn--add-to-cart {
     }
     .lg\:gap-6 {
         gap: 1.5rem;
-    }
-    .lg\:gap-8 {
-        gap: 2rem;
     }
     .lg\:space-x-8 > :not([hidden]) ~ :not([hidden]) {
         --tw-space-x-reverse: 0;

@@ -132,3 +132,11 @@
 {% if store.scope %}
 <salla-scopes selection="{{ store.scope.display_as == 'popup' ? 'mandatory' : 'optional' }}"></salla-scopes>
 {% endif %}
+
+<style>
+  @media screen and (max-width: 584px) {
+    .header-search{
+      display: none;
+    }
+  }
+</style>
