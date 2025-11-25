@@ -92,7 +92,6 @@
         position: relative;
         margin-top: 120px;
     }
-
     .discount-svg1 {
         position: absolute;
         top: 20px;
@@ -109,6 +108,7 @@
         position: absolute;
         bottom: 10px;
         left: 0;
+        z-index: 4;
     }
 
     .discount-p3 {
@@ -117,12 +117,13 @@
         left: 75px;
         font-size: 24px;
         font-weight: 700;
+        z-index: 5;
     }
 
     .div-discount-svg4 {
         position: absolute;
-        top: 0;
-        right: 0;
+        top: -16px;
+        right: 0px;
     }
 
     .discount-percentage {
@@ -165,10 +166,68 @@
         margin-top: 5px;
         font-size: 16px;
     }
-    .discount-image{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 0;
-}
+
+    .discount-image {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+    }
+
+    @media screen and (max-width: 970px) {
+        .discount-image {
+            width: 40%;
+        }
+
+        .info-discount-banner .title {
+            margin-top: 80px;
+        }
+
+        .discount-svg4 {
+            width: 260px;
+        }
+
+        .discount-percentage {
+            top: 30%;
+        }
+    }
+
+    @media screen and (max-width: 982px) {
+        .info-discount-banner .title {
+            margin-top: 150px;
+        }
+    }
+
+    @media screen and (max-width: 717px) {
+        .discount-svg4 {
+            width: 200px;
+        }
+
+        .discount-svg3 {
+            width: 250px;
+        }
+
+        .discount-banner {
+            height: 550px;
+        }
+
+        .info-discount-banner .title {
+            margin-top: 170px;
+        }
+
+        .discount-image {
+            width: 60%;
+        }
+    }
+    @media screen and (max-width: 460px){
+.discount-banner {
+            height: 500px;
+        }
+        .discount-image {
+            width: 70%;
+        }
+        .discount-svg2{
+            right: 20px;
+        }
+    }
 </style>
