@@ -1390,7 +1390,23 @@
             },
             "icon": "sicon-store",
             "path": "home.flash-sales",
-            "fields": []
+            "fields": [
+                {
+                    "id": "flash_sales_title",
+                    "type": "string",
+                    "format": "text",
+                    "label": "flash_sales_title",
+                    "description": null,
+                    "labelHTML": null,
+                    "placeholder": "Placeholder text ..",
+                    "icon": "sicon-format-text-alt",
+                    "value": null,
+                    "multilanguage": false,
+                    "required": true,
+                    "minLength": 6,
+                    "maxLength": 30
+                }
+            ]
         }
     ],
     "support_url": "https://aneeqsa.com/",
