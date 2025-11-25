@@ -1381,6 +1381,16 @@
             "icon": "sicon-store",
             "path": "home.newsletter",
             "fields": []
+        },
+        {
+            "key": "af716e1f-6cb8-4e67-967c-505488c86656",
+            "title": {
+                "en": "flash_sales",
+                "ar": "عروض"
+            },
+            "icon": "sicon-store",
+            "path": "home.flash-sales",
+            "fields": []
         }
     ],
     "support_url": "https://aneeqsa.com/",
