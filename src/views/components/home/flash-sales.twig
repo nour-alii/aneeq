@@ -1,227 +1,67 @@
-<div id="flash-sales" class="flash-sales">
-    <h2>🔄 عروض خاطفة</h2>
-    <div class="offers-grid" id="offers-grid"></div>
-    <div class="loading">جاري تحميل العروض...</div>
+{% if store.offers and store.offers|length > 0 %}
+<div class="special-offers">
+    <h2 class="title">العروض الخاصة</h2>
+
+    <div class="offers-grid">
+        {% for offer in store.offers %}
+            <div class="offer-card">
+                <img src="{{ offer.image }}" alt="{{ offer.title }}" class="offer-img">
+
+                <h3 class="offer-title">{{ offer.title }}</h3>
+
+                {% if offer.description %}
+                    <p class="offer-desc">{{ offer.description }}</p>
+                {% endif %}
+
+                {% if offer.url %}
+                    <a href="{{ offer.url }}" class="offer-btn">
+                        عرض العرض
+                    </a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
 </div>
+{% endif %}
 
 <style>
-    .flash-sales {
-    padding: 20px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    margin: 20px 0;
+    .special-offers {
+    margin: 30px 0;
 }
 
 .offers-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
     gap: 20px;
-    margin-top: 20px;
 }
 
 .offer-card {
-    background: white;
-    border-radius: 8px;
+    background: #fff;
+    border-radius: 14px;
     padding: 15px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     text-align: center;
+    box-shadow: 0 0 8px rgba(0,0,0,0.05);
 }
 
-.offer-timer {
-    background: #ff4444;
-    color: white;
-    padding: 5px 10px;
-    border-radius: 20px;
-    font-size: 12px;
+.offer-img {
+    width: 100%;
+    border-radius: 10px;
     margin-bottom: 10px;
 }
 
-.product-image {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.original-price {
-    text-decoration: line-through;
-    color: #999;
-}
-
-.discount-price {
-    color: #ff4444;
-    font-weight: bold;
+.offer-title {
     font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 6px;
 }
+
+.offer-btn {
+    display: inline-block;
+    background: #F8712F;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
 </style>
-
-<script>
-    class FlashSales {
-    constructor() {
-        this.container = document.getElementById('offers-grid');
-        this.loading = document.querySelector('.loading');
-        this.init();
-    }
-
-    async init() {
-        try {
-            await this.loadFlashSales();
-        } catch (error) {
-            console.error('Error loading flash sales:', error);
-        }
-    }
-
-    async loadFlashSales() {
-        // الطريقة 1: استخدام Salla API
-        const offers = await this.fetchOffers();
-        
-        // الطريقة 2: إذا كان لديك منتجات محددة
-        // const offers = await this.fetchProductsWithOffers();
-        
-        this.renderOffers(offers);
-    }
-
-    async fetchOffers() {
-        try {
-            // جلب العروض من Salla API
-            const response = await fetch('/api/v2/offers?type=flash_sales&status=active');
-            const data = await response.json();
-            return data.data || [];
-        } catch (error) {
-            console.error('Error fetching offers:', error);
-            return this.getSampleOffers(); // بيانات تجريبية للاختبار
-        }
-    }
-
-    async fetchProductsWithOffers() {
-        // جلب المنتجات التي لديها عروض
-        const response = await fetch('/api/v2/products?has_offers=true&limit=12');
-        const data = await response.json();
-        return data.data || [];
-    }
-
-    renderOffers(offers) {
-        this.loading.style.display = 'none';
-        
-        if (offers.length === 0) {
-            this.container.innerHTML = '<p>لا توجد عروض خاطفة حالياً</p>';
-            return;
-        }
-
-        this.container.innerHTML = offers.map(offer => `
-            <div class="offer-card">
-                ${this.renderTimer(offer)}
-                <img src="${offer.product?.images?.[0]?.url || '/placeholder.jpg'}" 
-                     alt="${offer.product?.name}" 
-                     class="product-image">
-                <h3>${offer.product?.name || 'منتج'}</h3>
-                
-                ${this.renderPrices(offer)}
-                
-                ${offer.discount_value ? `
-                    <div class="discount-badge">
-                        خصم ${offer.discount_value}%
-                    </div>
-                ` : ''}
-                
-                <button class="buy-btn" onclick="addToCart(${offer.product?.id})">
-                    أضف إلى السلة
-                </button>
-            </div>
-        `).join('');
-    }
-
-    renderTimer(offer) {
-        if (!offer.end_date) return '';
-        
-        const endDate = new Date(offer.end_date);
-        const now = new Date();
-        
-        if (endDate > now) {
-            return `
-                <div class="offer-timer" data-end="${offer.end_date}">
-                    ⏳ ينتهي في: ${this.formatTimeRemaining(endDate)}
-                </div>
-            `;
-        }
-        return '';
-    }
-
-    renderPrices(offer) {
-        if (!offer.product) return '';
-        
-        const originalPrice = offer.product.price;
-        const discountPrice = offer.discount_value ? 
-            originalPrice * (1 - offer.discount_value / 100) : 
-            originalPrice;
-
-        return `
-            <div class="prices">
-                ${offer.discount_value ? `
-                    <div class="original-price">${originalPrice} ر.س</div>
-                ` : ''}
-                <div class="discount-price">${discountPrice.toFixed(2)} ر.س</div>
-            </div>
-        `;
-    }
-
-    formatTimeRemaining(endDate) {
-        const now = new Date();
-        const diff = endDate - now;
-        
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        
-        return `${days} يوم ${hours} ساعة`;
-    }
-
-    getSampleOffers() {
-        // بيانات تجريبية للاختبار
-        return [
-            {
-                id: 1,
-                product: {
-                    id: 101,
-                    name: "منتج تجريبي 1",
-                    price: 100,
-                    images: [{ url: '/placeholder.jpg' }]
-                },
-                discount_value: 20,
-                end_date: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString()
-            },
-            {
-                id: 2,
-                product: {
-                    id: 102,
-                    name: "منتج تجريبي 2", 
-                    price: 150,
-                    images: [{ url: '/placeholder.jpg' }]
-                },
-                discount_value: 30,
-                end_date: new Date(Date.now() + 1 * 24 * 60 * 60 * 1000).toISOString()
-            }
-        ];
-    }
-}
-
-// تهيئة المكون عند تحميل الصفحة
-document.addEventListener('DOMContentLoaded', function() {
-    new FlashSales();
-    
-    // تحديث العداد كل دقيقة
-    setInterval(updateTimers, 60000);
-});
-
-function updateTimers() {
-    document.querySelectorAll('.offer-timer').forEach(timer => {
-        const endDate = new Date(timer.dataset.end);
-        timer.textContent = `⏳ ينتهي في: ${formatTimeRemaining(endDate)}`;
-    });
-}
-
-function addToCart(productId) {
-    // دالة إضافة إلى السلة
-    Salla.cart.add(productId, 1);
-    Salla.notification.show('تمت إضافة المنتج إلى السلة');
-}
-</script>
