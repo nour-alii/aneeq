@@ -1,11 +1,16 @@
-{% if store.offers and store.offers|length > 0 %}
+<pre>
+{{ dump(blocks) }}
+</pre>
+{% if blocks.specialOffers is defined and blocks.specialOffers|length > 0 %}
 <div class="special-offers">
     <h2 class="title">العروض الخاصة</h2>
 
     <div class="offers-grid">
-        {% for offer in store.offers %}
+        {% for offer in blocks.specialOffers %}
             <div class="offer-card">
-                <img src="{{ offer.image }}" alt="{{ offer.title }}" class="offer-img">
+                {% if offer.image %}
+                    <img src="{{ offer.image }}" alt="{{ offer.title }}" class="offer-img">
+                {% endif %}
 
                 <h3 class="offer-title">{{ offer.title }}</h3>
 
@@ -13,8 +18,8 @@
                     <p class="offer-desc">{{ offer.description }}</p>
                 {% endif %}
 
-                {% if offer.url %}
-                    <a href="{{ offer.url }}" class="offer-btn">
+                {% if offer.link %}
+                    <a href="{{ offer.link }}" class="offer-btn">
                         عرض العرض
                     </a>
                 {% endif %}
@@ -23,45 +28,3 @@
     </div>
 </div>
 {% endif %}
-
-<style>
-    .special-offers {
-    margin: 30px 0;
-}
-
-.offers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
-    gap: 20px;
-}
-
-.offer-card {
-    background: #fff;
-    border-radius: 14px;
-    padding: 15px;
-    text-align: center;
-    box-shadow: 0 0 8px rgba(0,0,0,0.05);
-}
-
-.offer-img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.offer-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 6px;
-}
-
-.offer-btn {
-    display: inline-block;
-    background: #F8712F;
-    color: #fff;
-    padding: 8px 15px;
-    border-radius: 8px;
-    margin-top: 10px;
-}
-
-</style>
