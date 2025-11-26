@@ -423,6 +423,42 @@
     <div class="container">
         <salla-products-slider source="related" source-value="{{product.id}}" block-title="{{trans('pages.products.similar_products')}}" display-all-url></salla-products-slider>
     </div>
+    <style>
+    .s-product-card-entry {
+        border-radius: 4px !important;
+        background-color: transparent !important;
+        border: 1px solid #E6E6E6;
+    }
+
+    .s-product-card-vertical .s-product-card-image {
+        border-top-left-radius: 4px !important;
+        border-top-right-radius: 4px !important;
+    }
+
+    .s-button-btn {
+        border: 1px solid #516bc8bf;
+        color: #516bc8bf;
+        border-radius: 4px !important;
+    }
+
+    .s-button-btn:hover {
+        background-color: #516bc848;
+        color: #516bc8;
+        border-radius: 4px !important;
+    }
+
+    .s-product-card-sale-price h4 {
+        color: #F55157 !important;
+    }
+
+    a:hover {
+        color: #516bc8 !important;
+    }
+    .s-product-card-image img {
+    height: 224px !important;
+    object-fit: contain !important;
+}
+</style>
 {% endblock %}
 
 {% block scripts %}
