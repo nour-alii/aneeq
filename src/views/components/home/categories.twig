@@ -3,11 +3,11 @@
     <p class="categoris-description">{{ component.category_description }}</p>
     <div class="all-categoris">
         {% for category in component.collection %}
-        <div class="one-img">
+        <a class="one-img">
             <img class="cat-img" src="{{category.category_image}}" />
             <p class="cat-title">{{category.category_name}}</p>
             <p class="cat-desc">{{category.category_number}}</p>
-        </div>
+        </a>
         {% endfor %}
     </div>
 
