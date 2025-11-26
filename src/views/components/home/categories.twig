@@ -3,16 +3,38 @@
     <p class="categoris-description">{{ component.category_description }}</p>
     <div class="all-categoris">
         {% for category in component.collection %}
-        <a class="one-img">
-            <img class="cat-img" src="{{category.category_image}}" />
-            <p class="cat-title">{{category.category_name}}</p>
-            <p class="cat-desc">{{category.category_number}}</p>
-        </a>
-        {% endfor %}
+
+  {# 1) خِذ الحقل الموجود: slug أو id أو link أو name (تفضيل) #}
+  {% set slug_from_field = category.slug
+        | default(category.link)
+        | default(category.path)
+        | default(category.id)
+        | default(category.category_slug)
+        | default(category.category_id) %}
+
+  {# 2) لو ما في أي من الحقول السابقة اصنع slug من الاسم (category_name أو name) #}
+  {% if slug_from_field %}
+    {% set category_href = '/' ~ slug_from_field %}
+  {% else %}
+    {# صنع slug بسيط: حوّل للحروف الصغيرة واستبدل الفراغات بشرطة وصفيّة من أحرف غير مرغوبة #}
+    {% set raw_name = category.category_name | default(category.name) | default('category') %}
+    {% set safe_slug = raw_name
+         | lower
+         | replace({' ': '-' , 'ـ': '-' , '_': '-'}) 
+         | replace({'/':'','\\':'','?':'','%':'','!':'','@':'','#':'','$':'&': ''}) %}
+    {% set category_href = '/' ~ safe_slug %}
+  {% endif %}
+
+  <a href="{{ category_href }}" class="one-img">
+    <img class="cat-img" src="{{ category.category_image }}" alt="{{ category.category_name|default(category.name) }}" />
+    <p class="cat-title">{{ category.category_name|default(category.name) }}</p>
+    <p class="cat-desc">{{ category.category_number }}</p>
+  </a>
+
+{% endfor %}
+
     </div>
-
 </div>
-
 <style>
     .categoris-title {
         text-align: center;
