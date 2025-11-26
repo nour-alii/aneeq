@@ -1135,6 +1135,22 @@
                     "icon": "sicon-list-add",
                     "fields": [
                         {
+                            "id": "collection.dropdown_list",
+                            "type": "items",
+                            "format": "dropdown-list",
+                            "label": "Dropdown List",
+                            "description": null,
+                            "labelHTML": null,
+                            "icon": "sicon-keyboard_arrow_down",
+                            "selected": [],
+                            "options": [],
+                            "source": "Categories",
+                            "multichoice": true,
+                            "searchable": true,
+                            "required": false,
+                            "value": []
+                        },
+                        {
                             "id": "collection.category_image",
                             "type": "string",
                             "format": "image",
