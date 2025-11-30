@@ -20,16 +20,16 @@
       <div slot="items">
         {% if component.show_cats %}
         {% for cat in component.categories %}
-        <div class="swiper-slide slide--one-sixth">
-          <a href="{{ cat.url }}" class="slide--cat-entry">
+        <div class="swiper-slide slide--one-third" style="padding: 0px;width:fit-content !important" >
+          <a href="{{ cat.url }}" class="slide--cat-entry" style="background-color: transparent;border:none;height:auto">
             {% if cat.image %}
             <img src="{{ cat.image ? cat.image : 'images/placeholder.png' | asset }}"
-              class="w-16 h-16 object-cover rounded-full mb-2.5 {{ cat.image ? '' : 'has-placeholder'}}" width="64"
+              class="w-16 h-16 object-cover rounded-full mb-2.5 {{ cat.image ? '' : 'has-placeholder'}} one-img" width="64"
               height="64" alt="{{ menu.title }}" />
             {% else %}
             <i class="{{ cat.icon }}"></i>
             {% endif %}
-            <h2>{{ cat.name }}</h2>
+            <h2 class="cat-title">{{ cat.name }}</h2>
           </a>
         </div>
         {% endfor %}
