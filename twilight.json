@@ -1371,17 +1371,17 @@
                 {
                     "id": "discount_units",
                     "type": "number",
-                    "format": "units",
+                    "format": "integer",
+                    "inputType": "number",
                     "label": "discount_units",
                     "description": null,
                     "labelHTML": null,
-                    "placeholder": "Insert value",
-                    "icon": "sicon-percentage",
+                    "placeholder": "Input an integer number between 5 and 50.",
+                    "icon": "sicon-hashtag",
                     "value": null,
                     "required": false,
-                    "unit": "%",
                     "minimum": 0,
-                    "maximum": 100
+                    "maximum": 50
                 }
             ]
         },
