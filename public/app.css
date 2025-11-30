@@ -805,9 +805,19 @@ select {
     padding-right: 10px;
     padding-left: 10px;
 }
+.\!container {
+    width: 100% !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    padding-right: 10px !important;
+    padding-left: 10px !important;
+}
 @media (min-width: 1280px) {
     .container {
         max-width: 1280px;
+    }
+    .\!container {
+        max-width: 1280px !important;
     }
 }
 .form-input,.form-textarea,.form-select,.form-multiselect {
@@ -955,9 +965,6 @@ select {
 }
 .z-\[2\] {
     z-index: 2;
-}
-.z-\[10\] {
-    z-index: 10;
 }
 .col-span-2 {
     grid-column: span 2 / span 2;
@@ -24454,10 +24461,6 @@ body.font-dinnextltarabic-regular .btn--add-to-cart {
 .rtl\:ml-8:where([dir="rtl"], [dir="rtl"] *) {
     margin-left: 2rem;
 }
-.rtl\:ml-\[unset\]:where([dir="rtl"], [dir="rtl"] *) {
-    margin-left: 0;
-    margin-left: initial;
-}
 .rtl\:ml-auto:where([dir="rtl"], [dir="rtl"] *) {
     margin-left: auto;
 }
@@ -24466,6 +24469,10 @@ body.font-dinnextltarabic-regular .btn--add-to-cart {
 }
 .rtl\:mr-3:where([dir="rtl"], [dir="rtl"] *) {
     margin-right: 0.75rem;
+}
+.rtl\:ml-\[unset\]:where([dir="rtl"], [dir="rtl"] *) {
+    margin-left: 0;
+    margin-left: initial;
 }
 .rtl\:mr-4:where([dir="rtl"], [dir="rtl"] *) {
     margin-right: 1rem;
