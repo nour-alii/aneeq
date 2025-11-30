@@ -805,19 +805,9 @@ select {
     padding-right: 10px;
     padding-left: 10px;
 }
-.\!container {
-    width: 100% !important;
-    margin-right: auto !important;
-    margin-left: auto !important;
-    padding-right: 10px !important;
-    padding-left: 10px !important;
-}
 @media (min-width: 1280px) {
     .container {
         max-width: 1280px;
-    }
-    .\!container {
-        max-width: 1280px !important;
     }
 }
 .form-input,.form-textarea,.form-select,.form-multiselect {
@@ -2158,9 +2148,6 @@ select {
 }
 .ease-out {
     transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
-}
-.ease-in-out {
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .s-hidden {
     display: none;

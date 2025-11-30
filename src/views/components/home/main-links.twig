@@ -1,52 +1,178 @@
 {#
-| Variable                           | Type     | Description                                                                  |
+| Variable | Type | Description |
 |------------------------------------|----------|------------------------------------------------------------------------------|
-| component                          | object   | Contains merchant settings for fields from twilight.json `component` section |
-| component.merge_with_top_component | bool     |                                                                              |
-| component.title                    | ?string  |                                                                              |
-| component.links                    | object[] | list of links                                                                |
-| component.links[].icon             | string   |                                                                              |
-| component.links[].title            | string   |                                                                              |
-| component.links[].url              | string   |                                                                              |
-| position                           | int      | Sorting number start from zero                                               |
+| component | object | Contains merchant settings for fields from twilight.json `component` section |
+| component.merge_with_top_component | bool | |
+| component.title | ?string | |
+| component.links | object[] | list of links |
+| component.links[].icon | string | |
+| component.links[].title | string | |
+| component.links[].url | string | |
+| position | int | Sorting number start from zero |
 #}
-<section class="s-block s-block--categories {{ component.merge_with_top_component and position ?'merge-with-top-component' : '' }} {{ not component.title and component.merge_with_top_component ? 'merged-has-no-title' : '' }}">
-    <div class="container">
-      <salla-slider  
-        type="carousel"
-        {% if(component.title) or (component.merge_with_top_component) %}
-            block-title="{{ component.title }}"
+<section
+  class="s-block s-block--categories {{ component.merge_with_top_component and position ?'merge-with-top-component' : '' }} {{ not component.title and component.merge_with_top_component ? 'merged-has-no-title' : '' }}">
+  <div class="container">
+    <h2 class="categoris-title">{{ component.title }}</h2>
+    <p class="categoris-description">تسوق أحدث المنتجات المميزة المضافة حديثا</p>
+    <salla-slider type="carousel" controls-outer show-controls="{{ component.show_controls ? 'true' : 'false'}}"
+      id="main-links-{{ position }}">
+      <div slot="items">
+        {% if component.show_cats %}
+        {% for cat in component.categories %}
+        <div class="swiper-slide slide--one-sixth">
+          <a href="{{ cat.url }}" class="slide--cat-entry">
+            {% if cat.image %}
+            <img src="{{ cat.image ? cat.image : 'images/placeholder.png' | asset }}"
+              class="w-16 h-16 object-cover rounded-full mb-2.5 {{ cat.image ? '' : 'has-placeholder'}}" width="64"
+              height="64" alt="{{ menu.title }}" />
+            {% else %}
+            <i class="{{ cat.icon }}"></i>
+            {% endif %}
+            <h2>{{ cat.name }}</h2>
+          </a>
+        </div>
+        {% endfor %}
+        {% else %}
+        {% for link in component.links %}
+        {% if link.title %}
+        <div class="swiper-slide slide--one-third" style="padding: 0px;width:fit-content !important">
+          <a href="{{ link.url }}" class="slide--cat-entry"
+            style="background-color: transparent;border:none;height:auto">
+            {% if link.image %}
+            <img src="{{ link.image }}" class="object-cover rounded-full mb-2.5 one-img" width="64" height="64"
+              alt="{{ link.title }}" />
+            {% else %}
+            <i class="{{ link.icon }}"></i>
+            {% endif %}
+            <h2 class="cat-title">{{ link.title }}</h2>
+          </a>
+        </div>
         {% endif %}
-        controls-outer
-        show-controls="{{ component.show_controls ? 'true' : 'false'}}" 
-        id="main-links-{{ position }}">
-          <div slot="items">
-              {% if component.show_cats %}
-                {% for cat in component.categories %}
-                    <div class="swiper-slide slide--one-sixth">
-                        <a href="{{ cat.url }}" class="slide--cat-entry">
-                            {% if cat.image %}
-                              <img src="{{ cat.image ? cat.image : 'images/placeholder.png' | asset }}" class="w-16 h-16 object-cover rounded-full mb-2.5 {{ cat.image ? '' : 'has-placeholder'}}" width="64" height="64" alt="{{ menu.title }}"/>
-                            {% else %}
-                              <i class="{{ cat.icon }}"></i>
-                            {% endif %}
-                            <h2>{{ cat.name }}</h2>
-                        </a>
-                    </div>
-                {% endfor %}
-              {% else %}
-                {% for link in component.links %}
-                  {% if link.title %}
-                    <div class="swiper-slide slide--one-sixth">
-                        <a href="{{ link.url }}" class="slide--cat-entry">
-                            <i class="{{ link.icon }}"></i>
-                            <h2>{{ link.title }}</h2>
-                        </a>
-                    </div>
-                  {% endif %}
-                {% endfor %}
-              {% endif %}
-          </div>
-      </salla-slider>
-    </div>
-</section> 
+        {% endfor %}
+
+        {% endif %}
+      </div>
+    </salla-slider>
+  </div>
+</section>
+
+<style>
+  .slide--one-third {
+    width: calc(100% / 3) !important;
+    /* كل سلايد يأخذ ثلث الشاشة */
+  }
+
+  .slide--cat-entry:hover {
+    box-shadow: none;
+  }
+
+  .cat-title {
+    color: #0F1939 !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    margin-top: 10px !important;
+  }
+
+  .s-slider-block__title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .s-slider-block__title h2 {
+    text-align: center !important;
+    font-size: 24px !important;
+    margin-top: 50px !important;
+    color: #0F1939 !important;
+    font-weight: 700 !important;
+  }
+
+  .categoris-title {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 50px;
+    color: #0F1939;
+    font-weight: 700;
+  }
+
+  .categoris-description {
+    color: #666666;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .one-img {
+    width: 229px;
+    height: 229px;
+  }
+
+  /* ============================= */
+  /*        ANIMATION STYLE        */
+  /* ============================= */
+  .one-img {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 0.6s ease;
+  }
+
+  .one-img.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .s-slider-swiper-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  @media screen and (max-width: 814px) {
+    .one-img {
+      width: 150px !important;
+      height: 150px !important;
+    }
+  }
+
+  @media screen and (max-width: 590px) {
+    .one-img {
+      width: 110px !important;
+      height: 110px !important;
+
+    }
+
+    .cat-title {
+      font-size: 16px !important;
+    }
+  }
+
+  @media screen and (max-width: 457px) {
+    .one-img {
+      width: 80px !important;
+      height: 80px !important;
+    }
+
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll('.one-img');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+
+    items.forEach((item, index) => {
+      item.style.transitionDelay = (index * 0.15) + "s";
+      observer.observe(item);
+    });
+  });
+</script>
