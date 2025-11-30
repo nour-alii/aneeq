@@ -411,7 +411,8 @@
                             "operation": "=",
                             "value": true
                         }
-                    ]
+                    ],
+                    "value": []
                 },
                 {
                     "id": "links",
@@ -488,7 +489,7 @@
                             "icon": "sicon-link",
                             "label": "الرابط",
                             "id": "links.url",
-                            "value": null,
+                            "value": [],
                             "description": null,
                             "required": false,
                             "format": "variable-list",
@@ -546,6 +547,18 @@
                                     "value": "custom"
                                 }
                             ]
+                        },
+                        {
+                            "id": "links.image",
+                            "type": "string",
+                            "format": "image",
+                            "label": "Image",
+                            "description": null,
+                            "labelHTML": null,
+                            "placeholder": "e.g. https://hostname.com/image.png",
+                            "icon": "sicon-image",
+                            "value": null,
+                            "required": false
                         }
                     ],
                     "conditions": [
