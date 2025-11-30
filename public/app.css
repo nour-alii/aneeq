@@ -2159,6 +2159,9 @@ select {
 .ease-out {
     transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
+.ease-in-out {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
 .s-hidden {
     display: none;
 }
@@ -24461,6 +24464,10 @@ body.font-dinnextltarabic-regular .btn--add-to-cart {
 .rtl\:ml-8:where([dir="rtl"], [dir="rtl"] *) {
     margin-left: 2rem;
 }
+.rtl\:ml-\[unset\]:where([dir="rtl"], [dir="rtl"] *) {
+    margin-left: 0;
+    margin-left: initial;
+}
 .rtl\:ml-auto:where([dir="rtl"], [dir="rtl"] *) {
     margin-left: auto;
 }
@@ -24469,10 +24476,6 @@ body.font-dinnextltarabic-regular .btn--add-to-cart {
 }
 .rtl\:mr-3:where([dir="rtl"], [dir="rtl"] *) {
     margin-right: 0.75rem;
-}
-.rtl\:ml-\[unset\]:where([dir="rtl"], [dir="rtl"] *) {
-    margin-left: 0;
-    margin-left: initial;
 }
 .rtl\:mr-4:where([dir="rtl"], [dir="rtl"] *) {
     margin-right: 1rem;

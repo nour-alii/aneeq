@@ -30,6 +30,19 @@
 </section>
 
 <style>
+  /* الحالة الابتدائية قبل الظهور */
+  .s-block {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+  }
+
+  /* الحالة عند ظهور العنصر */
+  .s-block.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
   .s-product-card-image img {
     height: 224px !important;
     object-fit: contain !important;
@@ -45,3 +58,23 @@
     }
   }
 </style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const blocks = document.querySelectorAll(".s-block");
+
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+            observer.unobserve(entry.target); // إيقاف المراقبة بعد الظهور
+          }
+        });
+      },
+      { threshold: 0.2 } // يظهر عندما يكون 20% من العنصر داخل الشاشة
+    );
+
+    blocks.forEach(block => observer.observe(block));
+  });
+</script>

@@ -87,10 +87,7 @@
 </div>
 
 
- <salla-offer-list 
-    limit="5"
-    show-timer="true"
-    type="latest">
+<salla-offer-list limit="5" show-timer="true" type="latest">
 </salla-offer-list>
 <style>
     .discount-banner {
@@ -98,7 +95,17 @@
         height: 500px;
         position: relative;
         margin-top: 120px;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease-out;
     }
+
+    /* الحالة عند ظهور العنصر */
+    .discount-banner.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
     .discount-svg1 {
         position: absolute;
         top: 20px;
@@ -226,15 +233,39 @@
             width: 60%;
         }
     }
-    @media screen and (max-width: 460px){
-.discount-banner {
+
+    @media screen and (max-width: 460px) {
+        .discount-banner {
             height: 500px;
         }
+
         .discount-image {
             width: 70%;
         }
-        .discount-svg2{
+
+        .discount-svg2 {
             right: 20px;
         }
     }
 </style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const banner = document.querySelector(".discount-banner");
+
+        const observer = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                        observer.unobserve(entry.target); // مش لازم يراقب بعد الظهور
+                    }
+                });
+            },
+            { threshold: 0.2 } // يظهر لما 20% من العنصر داخل الشاشة
+        );
+
+        if (banner) {
+            observer.observe(banner);
+        }
+    });
+</script>

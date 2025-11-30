@@ -1,16 +1,24 @@
 <div>
     <h2 class="categoris-title">{{ component.category_title }}</h2>
     <p class="categoris-description">{{ component.category_description }}</p>
+
     <div class="all-categoris">
         {% for category in component.collection %}
-        <a href="/{{ category.category_name}}" class="one-img">
-            <img class="cat-img" src="{{ category.category_image }}" />
-            <p class="cat-title">{{ category.category_name }}</p>
-            <p class="cat-desc">{{ category.category_number }}</p>
-        </a>
+        {% if category.category_name == 'مكياج' %}
+            <a href="https://salla.design/ar/dev-4uymw3squkeb0wmm/مكياج/c1792772281" class="one-img">
+        {% elseif category.category_name == 'اكسسوارات نسائية' %}
+            <a href="https://salla.design/ar/dev-4uymw3squkeb0wmm/اكسسوارات نسائية/c1151375290" class="one-img">
+        {% else %}
+            <a href="https://salla.design/ar/dev-4uymw3squkeb0wmm/حقائب/c378386107" class="one-img">
+        {% endif %}
+                <img class="cat-img" src="{{ category.category_image }}" />
+                <p class="cat-title">{{ category.category_name }}</p>
+                <p class="cat-desc">{{ category.category_number }}</p>
+            </a>
         {% endfor %}
     </div>
 </div>
+
 <style>
     .categoris-title {
         text-align: center;
@@ -63,7 +71,42 @@
         .cat-img {
             width: 170px;
             height: 170px;
-            border-radius: 50%;
         }
     }
+
+    /* ============================= */
+    /*        ANIMATION STYLE        */
+    /* ============================= */
+    .one-img {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: 0.6s ease;
+    }
+
+    .one-img.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
 </style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const items = document.querySelectorAll('.one-img');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, {
+        threshold: 0.2
+    });
+
+    items.forEach((item, index) => {
+        item.style.transitionDelay = (index * 0.15) + "s";
+        observer.observe(item);
+    });
+});
+</script>

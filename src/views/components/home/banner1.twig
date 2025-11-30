@@ -104,6 +104,14 @@
         position: relative;
         padding: 0px 50px;
         margin-top: 80px;
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s ease-out;
+    }
+
+    .banner1.show {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .banner1-title {
@@ -180,6 +188,7 @@
             flex-direction: column-reverse;
             padding: 80px 0px 0px 0px;
         }
+
         .inf-banner-right {
             width: 90%;
             display: flex;
@@ -188,10 +197,27 @@
             justify-content: center;
             text-align: center;
         }
-        
+
         .banner1 img {
             margin-left: 0px;
             width: 70%;
         }
     }
 </style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const banners = document.querySelectorAll('.banner1');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target); // لو بدك يظهر مرة وحدة فقط
+                }
+            });
+        }, { threshold: 0.2 }); // يظهر لما 20% من العنصر داخل الشاشة
+
+        banners.forEach(banner => observer.observe(banner));
+    });
+</script>

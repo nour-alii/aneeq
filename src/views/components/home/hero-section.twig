@@ -1,13 +1,13 @@
 <div class="hero-banner">
-    <div class="banner-background">
+    <div class="banner-background hero-bg-anim">
         <img src="{{ component.hero_image }}" alt="{{ component.hero_title }}">
     </div>
-    <div class="banner-content">
+
+    <div class="banner-content hero-text-anim">
         <h2 class="banner-title">{{ component.hero_title }}</h2>
         <p class="banner-description">{{ component.hero_description }}</p>
 
         <a href="#" class="banner-button">اكتشف المزيد</a>
-
     </div>
 </div>
 
@@ -31,17 +31,22 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transition: 1.2s ease;
+        display: block;
     }
 
+    /* نحتفظ بالمركزية هنا */
     .banner-content {
         position: absolute;
         top: 50%;
         left: 50%;
+        /* مهم: نحتفظ بالـ translate(-50%, -50%) دائماً لإبقاء العنصر في وسط الحاوية */
         transform: translate(-50%, -50%);
         text-align: center;
         color: white;
         z-index: 2;
         max-width: 80%;
+        pointer-events: auto;
     }
 
     .banner-title {
@@ -83,4 +88,54 @@
             width: 95%;
         }
     }
+
+    /* ============================= */
+    /*         ANIMATION STYLE       */
+    /* ============================= */
+
+    /* صورة الخلفية – Zoom In */
+    .hero-bg-anim {
+        opacity: 0;
+        transform: scale(1.08);
+        transition: opacity 1.3s ease, transform 1.3s ease;
+    }
+    .hero-bg-anim.show {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    /*
+      نص البنر:
+      - لاحظ أننا لا نُعيد كتابة translate(-50%, -50%) في .banner-content،
+        لذلك هنا نستخدم translate(-50%, -50%) ثم نضيف translateY(...) حتى لا نفقد المركزية.
+    */
+    .hero-text-anim {
+        /* نبدأ بمركزية + انزلاق عمودي 40px لأسفل */
+        transform: translate(-50%, -50%) translateY(40px);
+        opacity: 0;
+        transition: opacity 1s ease, transform 1s ease;
+    }
+    .hero-text-anim.show {
+        transform: translate(-50%, -50%) translateY(0);
+        opacity: 1;
+    }
 </style>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const heroBg = document.querySelector('.hero-bg-anim');
+    const heroText = document.querySelector('.hero-text-anim');
+
+    const heroObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                heroObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    if (heroBg) heroObserver.observe(heroBg);
+    if (heroText) heroObserver.observe(heroText);
+});
+</script>
