@@ -12,13 +12,13 @@
                     fill="white" />
             </svg>
             <div>
-                <p class="newsletter-title" >الاشتراك في النشرة البريدية</p>
-                <p class="newsletter-desc">انضم الآن واحصـل على خصم 10% على مشترياتك التالية ! </p>
+                <p class="newsletter-title" >{{ trans('pages.heroSection.subscribe') }}</p>
+                <p class="newsletter-desc">{{ trans('pages.heroSection.join') }}</p>
             </div>
         </div>
         <div class="newsletter-left" >
-            <input placeholder="ادخل البريد الالكتروني .." />
-            <button>إشتراك</button>
+            <input placeholder="{{ trans('pages.heroSection.enter_email') }}"/>
+            <button>{{ trans('pages.heroSection.subscription') }}</button>
         </div>
     </div>
 </div>

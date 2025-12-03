@@ -98,9 +98,9 @@
   ">
   <div class="loader-init"></div>
 <noscript>
-    To get full functionality of this site you need to enable JavaScript. Here is how
+    {{ trans('pages.master.noscript') }}
     <a href="https://www.enable-javascript.com/" rel="noreferrer"
-       target="_blank">To enable JavaScript on webpage</a>.
+       target="_blank">{{ trans('pages.master.noscript_link') }}</a>.
 </noscript>
 <div class="app-inner flex flex-col min-h-full">
     {% hook 'body:start' %}

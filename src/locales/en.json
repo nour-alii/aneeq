@@ -18,6 +18,22 @@
       "days_since_added": "days since it was added",
       "option_name": "Option name",
       "option_content": "Content"
+    },
+    "heroSection":{
+      "discover_more":"Discover more",
+      "shop_now": "Shop now",
+      "subscribe": "Subscribe to the newsletter",
+      "join": "Join now and get a 10% discount on your next purchase!",
+      "enter_email": "Enter your email address...",
+      "shope": "Shop the latest featured products recently added",
+      "featured_products": "Featured Products",
+      "discount": "A discount that reaches",
+      "subscription": "Subscription",
+      "start_shopping": "Start shopping now"
+    },
+    "master":{
+      "noscript": "To get full functionality of this site you need to enable JavaScript. Here is how",
+      "noscript_link": "To enable JavaScript on webpage"
     }
   },
   "common": {
