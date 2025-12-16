@@ -1,6 +1,6 @@
 {
     "name": {
-        "ar": "AneeQ",
+        "ar": "أنيق",
         "en": "AneeQ"
     },
     "repository": "https://github.com/nour-alii/aneeq",
@@ -1424,7 +1424,7 @@
     ],
     "support_url": "https://aneeqsa.com/",
     "description": {
-        "ar": "",
-        "en": ""
+        "ar": null,
+        "en": null
     }
 }
