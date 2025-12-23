@@ -1,10 +1,10 @@
 <div class="all-excerpts">
     {% for excerpt in component.excerpts %}
-    <div class="one-excerpt excerpt-anim" style="background-image: url('{{ excerpt.excerpts_image }}');">
+    <a href="/products" class="one-excerpt excerpt-anim" style="display: block; text-decoration: none;background-image: url('{{ excerpt.excerpts_image }}');">
         <p class="one-excerpt-title">{{ excerpt.excerpts_title }}</p>
         <p class="one-excerpt-desc">{{ excerpt.excerpts_description }}</p>
         <button>{{ trans('pages.heroSection.shop_now') }}</button>
-    </div>
+    </a>
     {% endfor %}
 </div>
 
@@ -93,23 +93,23 @@
 </style>
 
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const excerpts = document.querySelectorAll('.excerpt-anim');
+    document.addEventListener("DOMContentLoaded", () => {
+        const excerpts = document.querySelectorAll('.excerpt-anim');
 
-    const observer2 = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-                observer2.unobserve(entry.target);
-            }
+        const observer2 = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer2.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.2
         });
-    }, {
-        threshold: 0.2
-    });
 
-    excerpts.forEach((item, index) => {
-        item.style.transitionDelay = (index * 0.15) + "s";
-        observer2.observe(item);
+        excerpts.forEach((item, index) => {
+            item.style.transitionDelay = (index * 0.15) + "s";
+            observer2.observe(item);
+        });
     });
-});
 </script>

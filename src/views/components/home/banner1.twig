@@ -79,7 +79,7 @@
     <div class="inf-banner-right">
         <p class="banner1-title">{{component.banner1_title}}</p>
         <p class="banner1-desc">{{component.banner1_description}}</p>
-        <div style="position: relative;">
+        <a href="/products" style="display: block; position: relative; text-decoration: none;">
             <svg class="inf-banner-right-svg" width="300" height="65" viewBox="0 0 328 72" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path d="M328 1.34982H11.0115L25.7768 35.9998L11.0115 70.6499H328L313.235 35.9998L328 1.34982Z"
@@ -87,17 +87,21 @@
                 <path
                     d="M318.085 1.34998V0H1.0959C0.710461 0 0.356753 0.245445 0.157681 0.650177C-0.0413914 1.0549 -0.0519597 1.55888 0.125935 1.97666L14.6243 36L0.125935 70.0208C-0.0519597 70.4412 -0.0413914 70.9425 0.157681 71.3472C0.356753 71.7519 0.710461 72 1.0959 72H318.085C318.47 72 318.824 71.7519 319.023 71.3472C319.222 70.9425 319.232 70.4412 319.055 70.0208L304.556 36L319.055 1.97666C319.232 1.55888 319.222 1.0549 319.023 0.650177C318.824 0.245445 318.47 0 318.085 0V1.34998L317.117 0.72068L302.349 35.3733C302.182 35.765 302.182 36.2376 302.349 36.6293L316.274 69.3001H2.90662L16.8311 36.6293C16.9984 36.2376 16.9984 35.765 16.8311 35.3733L2.90662 2.69993H318.085V1.34998Z"
                     fill="white" />
-
             </svg>
             <p style="text-align: center;
-    font-size: 23px;
-    font-weight: bold;
-    position: absolute;
-    top: 50%;
-    left: 60%;
-    transform: translate(-60%, -50%);
-    white-space: nowrap;">{{ trans('pages.heroSection.start_shopping') }}</p>
-        </div>
+        font-size: 23px;
+        font-weight: bold;
+        position: absolute;
+        top: 50%;
+        left: 60%;
+        transform: translate(-60%, -50%);
+        white-space: nowrap;
+        color: #000; /* إضافة لون للنص */
+        pointer-events: none; /* لمنع مشاكل النقر */
+        ">
+                {{ trans('pages.heroSection.start_shopping') }}
+            </p>
+        </a>
     </div>
 </div>
 
