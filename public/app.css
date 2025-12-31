@@ -11573,6 +11573,7 @@ input[type=radio].sr-only:checked ~ div.s-price-range-currency {
 .s-product-card-entry {
     position: relative;
     display: flex;
+    flex-direction: column;
     height: 100%;
     justify-content: space-between;
     border-radius: .75rem;
@@ -11854,7 +11855,7 @@ input[type=radio].sr-only:checked ~ div.s-product-card-out-badge {
 .s-product-card-image {
     position: relative;
     height: 100%;
-    width: 100%;
+    width: 100% !important;
     flex-shrink: 0;
     overflow: hidden;
     --tw-bg-opacity: 1;
@@ -13248,7 +13249,7 @@ input[type=radio].sr-only:checked ~ div.s-product-options-grid-mode input[type=r
     }
 }
 .s-products-list-horizontal-cards {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1rem;
 }
 @media (min-width: 640px) {
