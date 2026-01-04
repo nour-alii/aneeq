@@ -12116,11 +12116,11 @@ input[type=radio].sr-only:checked ~ div.s-product-card-content-pie span {
 }
 .s-product-card-horizontal .s-product-card-image {
     height: auto;
-    width: 100%;
+    width: 8rem;
 }
 @media (min-width: 640px) {
     .s-product-card-horizontal .s-product-card-image {
-        width: 100%;
+        width: 14rem;
     }
 }
 .s-product-card-horizontal .s-product-card-image:where([dir="ltr"], [dir="ltr"] *) {
