@@ -1,6 +1,6 @@
 <div class="all-excerpts">
     {% for excerpt in component.excerpts %}
-    <a href="/most-Sales-products" class="one-excerpt excerpt-anim" style="display: block; text-decoration: none;background-image: url('{{ excerpt.excerpts_image }}');">
+    <a href="javascript:void(0)" id="mostSalesLinkE" class="one-excerpt excerpt-anim" style="display: block; text-decoration: none;background-image: url('{{ excerpt.excerpts_image }}');">
         <p class="one-excerpt-title">{{ excerpt.excerpts_title }}</p>
         <p class="one-excerpt-desc">{{ excerpt.excerpts_description }}</p>
         <button>{{ trans('pages.heroSection.shop_now') }}</button>
@@ -8,6 +8,26 @@
     {% endfor %}
 </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const link = document.getElementById('mostSalesLinkE');
+    
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // الحصول على المسار الحالي
+        let currentPath = window.location.pathname;
+        
+        // إزالة / في النهاية إذا كانت موجودة
+        if (currentPath.endsWith('/')) {
+            currentPath = currentPath.slice(0, -1);
+        }
+        
+        // الانتقال إلى المسار الجديد
+        window.location.href = currentPath + '/most-Sales-products';
+    });
+});
+</script>
 <style>
     .all-excerpts {
         margin-top: 110px;

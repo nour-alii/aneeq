@@ -79,7 +79,7 @@
     <div class="inf-banner-right">
         <p class="banner1-title">{{component.banner1_title}}</p>
         <p class="banner1-desc">{{component.banner1_description}}</p>
-        <a href="/most-Sales-products" style="display: block; position: relative; text-decoration: none;width: fit-content;">
+        <a href="javascript:void(0)" id="mostSalesLinkB" style="display: block; position: relative; text-decoration: none;width: fit-content;">
             <svg class="inf-banner-right-svg" width="300" height="65" viewBox="0 0 328 72" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path d="M328 1.34982H11.0115L25.7768 35.9998L11.0115 70.6499H328L313.235 35.9998L328 1.34982Z"
@@ -89,22 +89,41 @@
                     fill="white" />
             </svg>
             <p style="text-align: center;
-        font-size: 23px;
-        font-weight: bold;
-        position: absolute;
-        top: 50%;
-        left: 60%;
-        transform: translate(-60%, -50%);
-        white-space: nowrap;
-        color: #000; /* إضافة لون للنص */
-        pointer-events: none; /* لمنع مشاكل النقر */
-        ">
+                font-size: 23px;
+                font-weight: bold;
+                position: absolute;
+                top: 50%;
+                left: 60%;
+                transform: translate(-60%, -50%);
+                white-space: nowrap;
+                color: #000; 
+                pointer-events: none;"
+            >
                 {{ trans('pages.heroSection.start_shopping') }}
             </p>
         </a>
     </div>
 </div>
-
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const link = document.getElementById('mostSalesLinkB');
+    
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // الحصول على المسار الحالي
+        let currentPath = window.location.pathname;
+        
+        // إزالة / في النهاية إذا كانت موجودة
+        if (currentPath.endsWith('/')) {
+            currentPath = currentPath.slice(0, -1);
+        }
+        
+        // الانتقال إلى المسار الجديد
+        window.location.href = currentPath + '/most-Sales-products';
+    });
+});
+</script>
 <style>
     .banner1 {
         height: 500px;

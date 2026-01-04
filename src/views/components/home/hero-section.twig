@@ -7,9 +7,30 @@
         <h2 class="banner-title">{{ component.hero_title }}</h2>
         <p class="banner-description">{{ component.hero_description }}</p>
 
-        <a href="/most-Sales-products" class="banner-button">{{ trans('pages.heroSection.discover_more') }}</a>
+        <a href="javascript:void(0)" id="mostSalesLink" class="banner-button">{{ trans('pages.heroSection.discover_more') }}</a>
     </div>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const link = document.getElementById('mostSalesLink');
+    
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // الحصول على المسار الحالي
+        let currentPath = window.location.pathname;
+        
+        // إزالة / في النهاية إذا كانت موجودة
+        if (currentPath.endsWith('/')) {
+            currentPath = currentPath.slice(0, -1);
+        }
+        
+        // الانتقال إلى المسار الجديد
+        window.location.href = currentPath + '/most-Sales-products';
+    });
+});
+</script>
 
 <style>
     .hero-banner {

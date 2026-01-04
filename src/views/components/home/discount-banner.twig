@@ -55,7 +55,7 @@
         <path d="M0 122.821L39.535 140L40 138.881L0.464863 121.699" fill="white" fill-opacity="0.32" />
     </svg>
 
-    <a href="/most-Sales-products" style="display: block; text-decoration: none;">
+    <a href="javascript:void(0)" id="mostSalesLinkDB" style="display: block; text-decoration: none;">
         <svg class="discount-svg3" width="300" height="104" viewBox="0 0 300 104" fill="none"
             xmlns="http://www.w3.org/2000/svg">
             <path d="M298.279 5.34058e-05H0V97.254H217.631L298.279 5.34058e-05Z" fill="#E3AF64" />
@@ -88,9 +88,26 @@
 
 </div>
 
-
-<salla-offer-list limit="5" show-timer="true" type="latest">
-</salla-offer-list>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const link = document.getElementById('mostSalesLinkDB');
+    
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // الحصول على المسار الحالي
+        let currentPath = window.location.pathname;
+        
+        // إزالة / في النهاية إذا كانت موجودة
+        if (currentPath.endsWith('/')) {
+            currentPath = currentPath.slice(0, -1);
+        }
+        
+        // الانتقال إلى المسار الجديد
+        window.location.href = currentPath + '/most-Sales-products';
+    });
+});
+</script>
 <style>
     .discount-banner {
         background: radial-gradient(55.6% 55.6% at 48.85% 44.4%, #96ACFF 0%, #516AC8 100%);
