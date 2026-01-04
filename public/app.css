@@ -12040,6 +12040,7 @@ input[type=radio].sr-only:checked ~ div.s-product-card-out-badge {
     font-size: 0.875rem;
     line-height: 1.25rem;
     font-weight: 700;
+    color: red;
 }
 .s-product-card-image-cover {
     -o-object-fit: cover;
@@ -12117,11 +12118,11 @@ input[type=radio].sr-only:checked ~ div.s-product-card-content-pie span {
 }
 .s-product-card-horizontal .s-product-card-image {
     height: auto;
-    width: 8rem;
+    width: 100%;
 }
 @media (min-width: 640px) {
     .s-product-card-horizontal .s-product-card-image {
-        width: 14rem;
+        width: 100%;
     }
 }
 .s-product-card-horizontal .s-product-card-image:where([dir="ltr"], [dir="ltr"] *) {
